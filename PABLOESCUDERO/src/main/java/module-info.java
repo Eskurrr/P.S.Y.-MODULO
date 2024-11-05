@@ -1,7 +1,7 @@
 module com.telemedicina.pabloescudero {
-    requires javafx.controls;
     requires javafx.fxml;
     requires MaterialFX;
+    requires org.controlsfx.controls;
 
 
     exports com.telemedicina.pabloescudero.main.controller;

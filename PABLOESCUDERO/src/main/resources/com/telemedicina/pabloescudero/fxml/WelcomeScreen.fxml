@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import io.github.palexdev.materialfx.controls.MFXCircleToggleNode?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<Pane depthTest="DISABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.pabloescudero.main.controller.WelcomeController">
-    <ImageView fitHeight="277.0" fitWidth="305.0" layoutX="-80.0" layoutY="-64.0" pickOnBounds="true">
-        <Image url="@../images/CLEAR-RCPS-IM.png" />
-    </ImageView>
-    <ImageView fitHeight="129.0" fitWidth="132.0" layoutX="675.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../images/ROUND-RCPS.png" />
-    </ImageView>
-    <Label fx:id="user_lb" layoutX="780.0" layoutY="61.0" text="Usuario">
-        <font>
-            <Font name="System Italic" size="18.0" />
-        </font>
-        <contextMenu>
-            <ContextMenu fx:id="user_menu">
-                <items>
-                    <MenuItem mnemonicParsing="false" text="Change User" />
-                    <MenuItem mnemonicParsing="false" text="Settings" />
-                    <MenuItem mnemonicParsing="false" text="Log Out" />
-                </items>
-            </ContextMenu>
-        </contextMenu>
-    </Label>
-    <TextField fx:id="search_fld" layoutX="307.0" layoutY="61.0" prefHeight="27.0" prefWidth="286.0" promptText="Search" style="-fx-background-color: rgba(211, 211, 211, 0.4); -fx-background-radius: 16;" />
-</Pane>
+<AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.pabloescudero.main.controller.WelcomeController">
+   <children>
+      <VBox fx:id="sidePanel" prefHeight="691.0" prefWidth="200.0" style="-fx-background-color: BLUE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <HBox fx:id="mainMenu" layoutX="700.0" prefHeight="60.0" prefWidth="695.0" style="-fx-background-color: GREY;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MFXCircleToggleNode accessibleRole="BUTTON" contentDisplay="CENTER" focusTraversable="false" gap="-30.0" graphicTextGap="0.0" prefHeight="69.0" prefWidth="48.0" selected="true" size="30.0" style="-fx-background-radius: 100;" styleClass="mfx-circle-toggle-node" text="ijijo" textAlignment="CENTER" textFill="TRANSPARENT" />
+         </children>
+      </HBox>
+      <StackPane fx:id="mainContent" layoutX="204.0" layoutY="82.0" prefHeight="513.0" prefWidth="695.0" style="-fx-background-color: LIGHTGREEN;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>

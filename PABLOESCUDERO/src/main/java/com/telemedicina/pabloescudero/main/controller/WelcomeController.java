@@ -1,24 +1,31 @@
 package com.telemedicina.pabloescudero.main.controller;
 
+import io.github.palexdev.materialfx.controls.MFXRectangleToggleNode;
 import javafx.fxml.FXML;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import org.controlsfx.glyphfont.Glyph;
 
 public class WelcomeController {
-
     @FXML
-    private TextField search_fld;
-
+    public VBox sidePanel;
     @FXML
-    private Label user_lb;
-
+    public StackPane mainContent;
     @FXML
-    private ContextMenu user_menu;
+    public AnchorPane screen;
+    @FXML
+    public HBox mainMenu;
+    @FXML
+    public Glyph menuIcon;
+    @FXML
+    public MFXRectangleToggleNode bt_menu;
 
     @FXML
     public void initialize() {
-        // Initially disable focus on the TextField
-        search_fld.setFocusTraversable(false);
+        mainContent.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
+        mainMenu.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
+        mainContent.prefHeightProperty().bind(screen.heightProperty().subtract(mainMenu.heightProperty()));
     }
 }
