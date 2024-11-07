@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="materialfx">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/materialfx-11.17.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

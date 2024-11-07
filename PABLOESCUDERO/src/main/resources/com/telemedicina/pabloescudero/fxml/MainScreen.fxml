@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.pabloescudero.main.controller.MainController">
+   <children>
+      <VBox fx:id="sidePanel" prefHeight="691.0" prefWidth="200.0" style="-fx-background-color: #F5ABFF99;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <HBox fx:id="mainMenu" focusTraversable="true" layoutX="700.0" prefHeight="60.0" prefWidth="695.0" style="-fx-background-color: #66666611;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Glyph fx:id="menuIcon" alignment="TOP_CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="20.0" graphicTextGap="0.0" onMouseClicked="#iconClicked" prefHeight="0.0" prefWidth="28.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+               <graphic>
+                  <MFXRadioButton fx:id="bt_menu" alignment="TOP_CENTER" cache="true" contentDisplay="CENTER" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#toggleMenu" prefHeight="58.0" prefWidth="69.0" radioGap="0.0" radius="22.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio" textFill="TRANSPARENT" />
+               </graphic>
+            </Glyph>
+         </children></HBox>
+      <StackPane fx:id="mainContent" layoutX="204.0" layoutY="79.0" prefHeight="513.0" prefWidth="695.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="7.666666666666629" AnchorPane.rightAnchor="0.6666666666666288" />
+   </children>
+</AnchorPane>

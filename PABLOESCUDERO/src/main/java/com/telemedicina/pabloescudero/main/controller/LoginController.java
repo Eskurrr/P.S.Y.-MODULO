@@ -15,7 +15,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class MenuController {
+public class LoginController {
     @FXML
     private Label txt_warning;
     @FXML
@@ -27,9 +27,9 @@ public class MenuController {
     @FXML
     private MFXButton bt_forgot;
 
-    private MainController mainController;
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
+    private HandlerController handlerController;
+    public void setMainController(HandlerController handlerController) {
+        this.handlerController = handlerController;
     }
     @FXML
     void clickLogin(ActionEvent event) throws IOException {
@@ -58,7 +58,7 @@ public class MenuController {
             txt_warning.setText("Successful login: " + username);
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
-                mainController.changeWindow("/com/telemedicina/pabloescudero/fxml/WelcomeScreen.fxml");
+                handlerController.changeWindow("/com/telemedicina/pabloescudero/fxml/MainScreen.fxml");
             });
             pause.play();
 
@@ -86,6 +86,6 @@ public class MenuController {
 
     @FXML
     public void forgotLogin(ActionEvent actionEvent) {
-        mainController.changeWindow("/com/telemedicina/pabloescudero/fxml/PasswordScreen.fxml");
+        handlerController.changeWindow("/com/telemedicina/pabloescudero/fxml/PasswordScreen.fxml");
     }
 }
