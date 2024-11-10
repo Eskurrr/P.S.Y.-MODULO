@@ -35,4 +35,15 @@
     <TextField fx:id="diagnosticField" promptText="Enter diagnostic" GridPane.columnIndex="1"/>
 
     <Label text="Phone: "/>
-    <TextField fx:id="phoneField" promptText="Enter phone number" GridPane.col
+    <TextField fx:id="phoneField" promptText="Enter phone number" GridPane.columnIndex="1"/>
+
+    <Label text="Address: "/>
+    <TextField fx:id="addressField" promptText="Enter address" GridPane.columnIndex="1"/>
+
+    <Button text="Add Patient" fx:id="addPatientButton" onAction="#handleAddPatient" GridPane.columnSpan="2"
+            styleClass="primary-button"/>
+
+</GridPane>
+
+
+
