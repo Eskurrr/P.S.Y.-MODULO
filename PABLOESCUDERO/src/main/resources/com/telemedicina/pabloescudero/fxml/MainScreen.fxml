@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
-<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -13,24 +13,32 @@
 
 <AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.pabloescudero.main.controller.MainController">
    <children>
-      <VBox fx:id="sidePanel" alignment="TOP_CENTER" prefHeight="691.0" prefWidth="200.0" style="-fx-background-color: #F5ABFF99;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="sidePanel" alignment="TOP_CENTER" focusTraversable="true" prefHeight="691.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #F5ABFF99;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <padding>
-            <Insets bottom="10.0" left="10.0" top="60.0" />
+            <Insets bottom="10.0" left="10.0" top="30.0" />
          </padding>
          <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="15.0" prefHeight="31.0" prefWidth="63.0" styleClass="header" text="Menu" textAlignment="CENTER">
             <font>
                <Font size="21.0" />
             </font>
          </Label>
-         <MFXScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="430.0" prefWidth="161.0" style="-fx-background-color: #F5ABFF00;" VBox.vgrow="ALWAYS">
-            <VBox.margin>
-               <Insets bottom="10.0" left="5.0" top="15.0" />
-            </VBox.margin>
-            <padding>
-               <Insets right="10.0" />
-            </padding>
-            <VBox fx:id="navBar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" styleClass="navbar" />
-         </MFXScrollPane>
+         <Glyph fx:id="DevicesIcon" alignment="CENTER" contentDisplay="TOP">
+            <graphic>
+               <MFXRadioButton fx:id="DevicesButton" contentDisposition="TOP" gap="2.0" prefHeight="69.0" prefWidth="70.0" radioGap="2.0" radius="24.0" stylesheets="@../css/MFXRadioButton.css" text="Devices">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="maintoggle" />
+                  </toggleGroup>
+               </MFXRadioButton>
+            </graphic>
+         </Glyph>
+         <Glyph fx:id="PatientsIcon" alignment="CENTER" contentDisplay="TOP" layoutX="80.0" layoutY="71.0">
+            <graphic>
+               <MFXRadioButton fx:id="PatientsButton" contentDisposition="TOP" gap="2.0" prefHeight="69.0" prefWidth="70.0" radioGap="2.0" radius="24.0" stylesheets="@../css/MFXRadioButton.css" text="Patients" toggleGroup="$maintoggle" />
+            </graphic>
+         </Glyph>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </VBox>
       <HBox fx:id="mainMenu" focusTraversable="true" layoutX="700.0" prefHeight="60.0" prefWidth="695.0" style="-fx-background-color: #66666611;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

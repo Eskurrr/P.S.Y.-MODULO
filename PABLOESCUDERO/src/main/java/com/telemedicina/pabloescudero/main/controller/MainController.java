@@ -2,7 +2,6 @@ package com.telemedicina.pabloescudero.main.controller;
 
 
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
-import io.github.palexdev.materialfx.controls.MFXRectangleToggleNode;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import io.github.palexdev.materialfx.utils.ScrollUtils;
 import io.github.palexdev.materialfx.utils.ToggleButtonsUtil;
@@ -10,30 +9,24 @@ import io.github.palexdev.mfxcore.utils.loader.MFXLoader;
 import io.github.palexdev.mfxcore.utils.loader.MFXLoaderBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
-
 import java.util.List;
+import java.util.Objects;
 
-import static io.github.palexdev.mfxresources.MFXResources.loadURL;
+import static javafx.scene.control.ContentDisplay.TOP;
 
 
 public class MainController {
     @FXML
-    public MFXScrollPane scrollPane;
-    @FXML
     public VBox navBar;
-    @FXML
-    private final ToggleGroup toggleGroup;
     @FXML
     public VBox sidePanel;
     @FXML
@@ -46,25 +39,27 @@ public class MainController {
     public MFXRadioButton bt_menu;
     @FXML
     public Glyph menuIcon;
+    @FXML
+    public Glyph DevicesIcon;
+    @FXML
+    public MFXRadioButton DevicesButton;
+    @FXML
+    public Glyph PatientsIcon;
+    @FXML
+    public MFXRadioButton PatientsButton;
+    @FXML
+    public ToggleGroup maintoggle;
 
-    private double xOffset;
-    private double yOffset;
-
-    public MainController() {
-        this.toggleGroup = new ToggleGroup();
-        ToggleButtonsUtil.addAlwaysOneSelectedSupport(toggleGroup);
-    }
     @FXML
     public void initialize() {
+        ToggleButtonsUtil.addAlwaysOneSelectedSupport(maintoggle);
         menuIcon.setIcon(FontAwesome.Glyph.BARS);
+        PatientsIcon.setIcon(FontAwesome.Glyph.USER);
+        DevicesIcon.setIcon(FontAwesome.Glyph.MOBILE_PHONE);
         mainMenu.prefHeight(60);
         mainContent.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
         mainMenu.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
         mainContent.prefHeightProperty().bind(screen.heightProperty().subtract(mainMenu.heightProperty()));
-
-        initializeLoader();
-
-        ScrollUtils.addSmoothScrolling(scrollPane);
     }
     @FXML
     public void toggleMenu(ActionEvent actionEvent) {
@@ -82,43 +77,45 @@ public class MainController {
     }
     @FXML
     private void initializeLoader() {
+        // Set up the loader for the MFX views
         MFXLoader loader = new MFXLoader();
         loader.addView(MFXLoaderBean.of("Devices", getClass().getResource("/com/telemedicina/pabloescudero/fxml/DevicesScreen.fxml"))
-                .setBeanToNodeMapper(() -> createToggle(FontAwesome.Glyph.MOBILE_PHONE, "Devices"))
+                .setBeanToNodeMapper(() -> DevicesButton) // Map to the devicesButton created in FXML
                 .setDefaultRoot(true).get());
+        loader.addView(MFXLoaderBean.of("Settings", getClass().getResource("/com/telemedicina/pabloescudero/fxml/SettingsScreen.fxml"))
+                .setBeanToNodeMapper(() -> PatientsButton) // Map to the settingsButton created in FXML
+                .setDefaultRoot(false).get());
+
         loader.setOnLoadedAction(beans -> {
-            List<ToggleButton> nodes = beans.stream()
+            List<Glyph> nodes = beans.stream()
                     .map(bean -> {
-                        ToggleButton toggle = (ToggleButton) bean.getBeanToNodeMapper().get();
-                        toggle.setOnAction(event -> mainContent.getChildren().setAll(bean.getRoot()));
+                        Glyph glyph = (Glyph) bean.getBeanToNodeMapper().get();
+                        MFXRadioButton toggleNode = (MFXRadioButton) glyph.getGraphic();
+
+                        // Set the action for the button
+                        toggleNode.setOnAction(event -> {
+                            // Set the main content based on the selected view
+                            mainContent.getChildren().setAll(bean.getRoot());
+                        });
+
+                        // Set up the mouse click event to trigger the radio button action
+                        glyph.setOnMouseClicked(mouseEvent -> toggleNode.fire());
+
+                        // Default view selection
                         if (bean.isDefaultView()) {
                             mainContent.getChildren().setAll(bean.getRoot());
-                            toggle.setSelected(true);
+                            toggleNode.setSelected(true);
                         }
-                        return toggle;
+
+                        return glyph;
                     })
                     .toList();
+
+            // Set the children of the navBar with the dynamically created Glyphs
             navBar.getChildren().setAll(nodes);
         });
+
+        // Start the loader
         loader.start();
-    }
-
-    @FXML// Create toggle method with ControlsFX Glyph for the icon
-    private ToggleButton createToggle(FontAwesome.Glyph icon, String text) {
-        return createToggle(icon, text, 0);
-    }
-    @FXML
-    private ToggleButton createToggle(FontAwesome.Glyph icon, String text, double rotate) {
-        // Create a ControlsFX Glyph icon
-        Glyph glyphIcon = new Glyph("FontAwesome", icon).size(24);
-        if (rotate != 0) glyphIcon.setRotate(rotate);
-
-        // Create a ToggleButton with the icon and label
-        MFXRectangleToggleNode toggleNode = new MFXRectangleToggleNode(text, glyphIcon);
-        toggleNode.setAlignment(Pos.CENTER_LEFT);
-        toggleNode.setMaxWidth(Double.MAX_VALUE);
-        toggleNode.setToggleGroup(toggleGroup);
-
-        return toggleNode;
     }
 }

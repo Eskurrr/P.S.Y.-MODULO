@@ -36,7 +36,7 @@
 .mfx-radio-button .mfx-ripple-generator {
   -mfx-animation-speed: 2;
   -mfx-ripple-color: derive(-mfx-main, 110%);
-  -mfx-ripple-radius: 8;
+  -mfx-ripple-radius: 8.0;
 }
 
 .mfx-radio-button:selected .radio {

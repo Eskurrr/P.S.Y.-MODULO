@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.mfxcore.controls.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
+  <columnConstraints>
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="400.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="259.0" spacing="5.0" GridPane.columnIndex="1">
+         <children>
+            <Text text="My info">
+               <font>
+                  <Font name="Comfortaa Regular" size="20.0" />
+               </font>
+            </Text>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Name" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Sex" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Age" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Email" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Diagnostic" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Phone" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Adress" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Nurse" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Text text="Device" />
+                  <CustomTextField />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</GridPane>
