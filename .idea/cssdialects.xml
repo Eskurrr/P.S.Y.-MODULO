@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CssDialectMappings">
-    <file url="file://$PROJECT_DIR$/PABLOESCUDERO/src/main/resources/com/telemedicina/pabloescudero/css/MFXRadioButton.css" dialect="JavaFX" />
+    <file url="file://$PROJECT_DIR$/RCPS/src/main/resources/com/telemedicina/rcps/css/MFXRadioButton.css" dialect="JavaFX" />
   </component>
 </project>

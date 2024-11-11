@@ -1,4 +1,4 @@
-package com.telemedicina.pabloescudero.main.controller;
+package com.telemedicina.rcps.main.controller;
 
 
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
@@ -73,10 +73,10 @@ public class MainController {
     private void initializeLoader() {
         // Set up the loader for the MFX views
         MFXLoader loader = new MFXLoader();
-        loader.addView(MFXLoaderBean.of("Devices", getClass().getResource("/com/telemedicina/pabloescudero/fxml/DevicesScreen.fxml"))
+        loader.addView(MFXLoaderBean.of("Devices", getClass().getResource("/com/telemedicina/rcps/fxml/DevicesScreen.fxml"))
                 .setBeanToNodeMapper(() -> DevicesButton) // Map to the devicesButton created in FXML
                 .setDefaultRoot(true).get());
-        loader.addView(MFXLoaderBean.of("Settings", getClass().getResource("/com/telemedicina/pabloescudero/fxml/SettingsScreen.fxml"))
+        loader.addView(MFXLoaderBean.of("Settings", getClass().getResource("/com/telemedicina/rcps/fxml/SettingsScreen.fxml"))
                 .setBeanToNodeMapper(() -> PatientsButton) // Map to the settingsButton created in FXML
                 .setDefaultRoot(false).get());
 

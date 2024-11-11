@@ -1,4 +1,4 @@
-package com.telemedicina.pabloescudero.main.controller;
+package com.telemedicina.rcps.main.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;

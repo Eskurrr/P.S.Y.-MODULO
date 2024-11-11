@@ -1,4 +1,4 @@
-package com.telemedicina.pabloescudero.main.controller;
+package com.telemedicina.rcps.main.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -1,4 +1,4 @@
-package com.telemedicina.pabloescudero.main.controller;
+package com.telemedicina.rcps.main.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.PauseTransition;
@@ -58,7 +58,7 @@ public class LoginController {
             txt_warning.setText("Successful login: " + username);
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
-                handlerController.changeWindow("/com/telemedicina/pabloescudero/fxml/MainScreen.fxml");
+                handlerController.changeWindow("/com/telemedicina/rcps/fxml/MainScreen.fxml");
             });
             pause.play();
 
@@ -86,6 +86,6 @@ public class LoginController {
 
     @FXML
     public void forgotLogin(ActionEvent actionEvent) {
-        handlerController.changeWindow("/com/telemedicina/pabloescudero/fxml/PasswordScreen.fxml");
+        handlerController.changeWindow("/com/telemedicina/rcps/fxml/PasswordScreen.fxml");
     }
 }

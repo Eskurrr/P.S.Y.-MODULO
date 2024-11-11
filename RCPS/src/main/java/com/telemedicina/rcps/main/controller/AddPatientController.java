@@ -1,4 +1,4 @@
-package com.telemedicina.carolinabeatrice.controller;
+package com.telemedicina.rcps.main.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
