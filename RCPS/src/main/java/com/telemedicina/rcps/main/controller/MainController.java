@@ -46,7 +46,7 @@ public class MainController {
         SidePanelSetup();
         icons();
         DevicesButton.setSelected(true);
-        DevicesButton.fire();
+        loadView("DevicesScreen.fxml");
     }
     @FXML
     public void toggleMenu(ActionEvent actionEvent) {
@@ -62,6 +62,7 @@ public class MainController {
     public void SidePanelSetup (){
         mainMenu.setPrefHeight(60);
         sidePanel.setPrefWidth(160);
+        sidePanel.setMinWidth(0);
         mainContent.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
         mainMenu.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
         mainContent.prefHeightProperty().bind(screen.heightProperty().subtract(mainMenu.heightProperty()));
@@ -72,8 +73,6 @@ public class MainController {
             Pane view = loader.load();
             mainContent.getChildren().clear();
             mainContent.getChildren().add(view);
-            view.prefWidthProperty().bind(mainContent.widthProperty());
-            view.prefHeightProperty().bind(mainContent.heightProperty());
         } catch (IOException e) {
             e.printStackTrace();
         }
