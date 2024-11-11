@@ -2,14 +2,11 @@ package com.telemedicina.pabloescudero.main.controller;
 
 
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
-import io.github.palexdev.materialfx.controls.MFXScrollPane;
-import io.github.palexdev.materialfx.utils.ScrollUtils;
 import io.github.palexdev.materialfx.utils.ToggleButtonsUtil;
 import io.github.palexdev.mfxcore.utils.loader.MFXLoader;
 import io.github.palexdev.mfxcore.utils.loader.MFXLoaderBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,9 +16,6 @@ import javafx.scene.layout.VBox;
 import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 import java.util.List;
-import java.util.Objects;
-
-import static javafx.scene.control.ContentDisplay.TOP;
 
 
 public class MainController {
