@@ -2,7 +2,7 @@ package com.telemedicina.rcps.main.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-public class PatientsAddController {
+public class AddPatientController {
     @FXML
     private TextField nameField, ageField, emailField, diagnosticField, phoneField, addressField;
     @FXML
