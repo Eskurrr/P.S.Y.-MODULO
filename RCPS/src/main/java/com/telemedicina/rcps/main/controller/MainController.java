@@ -1,6 +1,7 @@
 package com.telemedicina.rcps.main.controller;
 
 
+import data.Users;
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import static org.controlsfx.glyphfont.FontAwesome.Glyph.*;
 
 
-public class MainController {
+public class MainController extends Users {
     @FXML
     public VBox sidePanel;
     @FXML
@@ -56,6 +57,8 @@ public class MainController {
         }else {
         sidePanel.setPrefWidth(160); // Expand the side panel
         sidePanel.setVisible(true);
+        System.out.println("WIDTH:" + mainContent.getWidth());
+        System.out.println("HEIGHT:" + mainContent.getHeight());
     }
     }
     @FXML

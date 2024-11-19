@@ -3,18 +3,19 @@ package data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enfermero {
+public class Enfermero extends Usuario {
     private String nombre;
-    private String apellido;
-    private String Especialidad;
-    private List<Paciente> pacientes;
-    public Enfermero(String nombre, String apellido, String Especialidad) {
+    private int edad;
+    private String telefono;
+    public Enfermero(String nombre, int edad, String telefono, String id) {
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.Especialidad = Especialidad;
-        this.pacientes = new ArrayList<Paciente>();
+        this.edad = edad;
+        this.telefono = telefono;
+        super.setCorreo("");
+        super.setPassword("");
+        String idP = "2222" + id;;
+        super.setId(idP.toCharArray());
     }
-
     public String getNombre() {
         return nombre;
     }
@@ -23,27 +24,20 @@ public class Enfermero {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    public String getEspecialidad() {
-        return Especialidad;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setEspecialidad(String especialidad) {
-        Especialidad = especialidad;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public List<Paciente> getPacientes() {
-        return pacientes;
-    }
-
-    public void setPacientes(List<Paciente> pacientes) {
-        this.pacientes = pacientes;
-    }
 }

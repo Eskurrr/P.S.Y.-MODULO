@@ -1,5 +1,6 @@
 package com.telemedicina.rcps.main.controller;
 
+import data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -15,7 +16,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController extends Users {
     @FXML
     private Label txt_warning;
     @FXML

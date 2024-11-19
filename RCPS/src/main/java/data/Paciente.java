@@ -1,21 +1,21 @@
 package data;
 
-public class Paciente {
+public class Paciente extends Usuario{
     private String nombre;
     private int edad;
-    private String genero;
     private String telefono;
-    private String email;
     private String direccion;
     private String diagnostico;
-    public Paciente(String name, int age, String gender, String phone, String email, String address, String diagnostic) {
-        this.nombre = name;
-        this.edad = age;
-        this.genero = gender;
-        this.telefono = phone;
-        this.email = email;
-        this.direccion = address;
-        this.diagnostico = diagnostic;
+    public Paciente(String nombre, int edad, String telefono, String direccion, String diagnostico , String id) {
+        super.setCorreo("");
+        super.setPassword("");
+        String idP = "3333" + id;
+        super.setId(idP.toCharArray());
+        this.nombre = nombre;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.diagnostico = diagnostico;
     }
 
     public String getNombre() {
@@ -34,28 +34,12 @@ public class Paciente {
         this.edad = edad;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
     public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getDireccion() {

@@ -11,10 +11,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.glyphfont.Glyph?>
 
-<AnchorPane prefHeight="581.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.DevicesController">
+<AnchorPane prefHeight="540.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.DevicesController">
     <children>
-        <MFXScrollPane hbarPolicy="NEVER" prefHeight="581.0" prefWidth="846.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <MFXScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="581.0" prefWidth="846.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <content>
                 <GridPane alignment="CENTER" focusTraversable="true" prefHeight="894.0" prefWidth="843.0" vgap="30.0">
                     <!-- Disable horizontal growth and let the columns stay at their preferred width -->
@@ -40,7 +41,9 @@
                      <graphic>
                         <GridPane fx:id="DV1_Pane">
                           <columnConstraints>
-                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="120.00000762939453" minWidth="10.0" prefWidth="111.33331298828125" />
+                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="239.33335367838538" minWidth="10.0" prefWidth="135.3333536783854" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="136.6666310628255" minWidth="10.0" prefWidth="117.99994405110675" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="81.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -49,21 +52,25 @@
                           </rowConstraints>
                            <children>
                               <Label fx:id="device" prefHeight="17.0" prefWidth="89.0" text="DEVICE:" />
-                              <Label fx:id="DeviceName" graphicTextGap="0.0" prefHeight="57.0" prefWidth="234.0" text="DeviceName" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <font>
-                                    <Font size="31.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fx:id="userFoto" fitHeight="114.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                 <image>
-                                    <Image url="@../images/ROUND-RCPS.png" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="userName" prefHeight="47.0" prefWidth="143.0" text="Usuario" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <Label fx:id="DeviceName" alignment="CENTER" graphicTextGap="0.0" prefHeight="57.0" prefWidth="152.0" text="DeviceName" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
+                              <ImageView fx:id="userFoto" fitHeight="114.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../images/ROUND-RCPS.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="userName" prefHeight="47.0" prefWidth="143.0" text="Usuario" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Glyph alignment="CENTER" fontFamily="FontAwesome" fontSize="16.0" prefHeight="43.0" prefWidth="68.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                              <Label text="Assigned:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label prefHeight="30.0" prefWidth="77.0" text="Enfermero" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Glyph prefHeight="17.0" prefWidth="61.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                      </graphic>
@@ -77,5 +84,6 @@
                 </GridPane>
             </content>
         </MFXScrollPane>
+      <Glyph />
     </children>
 </AnchorPane>
