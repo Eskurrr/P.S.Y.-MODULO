@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Dispositivo {
     private String id;
-    List<Integer> medidas;
+    private String paciente;
+    private List<Integer> medidas;
     public Dispositivo(String id) {
         this.id = id;
         this.medidas = new ArrayList<Integer>();
