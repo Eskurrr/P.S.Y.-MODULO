@@ -22,7 +22,7 @@ public class MainController extends Users {
     @FXML
     public AnchorPane screen;
     @FXML
-    public HBox mainMenu;
+    public GridPane mainMenu;
     @FXML
     public MFXRadioButton bt_menu;
     @FXML

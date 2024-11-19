@@ -4,10 +4,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.glyphfont.Glyph?>
 
@@ -84,14 +89,29 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <HBox fx:id="mainMenu" focusTraversable="true" layoutX="700.0" prefHeight="60.0" prefWidth="702.0" style="-fx-background-color: #66666611;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="mainContent" layoutX="204.0" layoutY="79.0" prefHeight="513.0" prefWidth="695.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="7.666666666666629" AnchorPane.rightAnchor="0.6666666666666288" />
+      <GridPane fx:id="mainMenu" layoutX="168.0" prefHeight="60.0" prefWidth="732.0" style="-fx-background-color: #66666611;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.6666259765625" minWidth="10.0" prefWidth="40.00001525878906" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="447.99998474121094" minWidth="10.0" prefWidth="447.99998474121094" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
             <Glyph fx:id="menuIcon" alignment="TOP_CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="20.0" graphicTextGap="0.0" prefHeight="0.0" prefWidth="28.0" style="-fx-cursor: HAND;" viewOrder="1.0">
                <graphic>
                   <MFXRadioButton fx:id="bt_menu" alignment="TOP_CENTER" cache="true" contentDisplay="CENTER" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#toggleMenu" prefHeight="58.0" prefWidth="69.0" radioGap="0.0" radius="22.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio" textFill="TRANSPARENT" />
                </graphic>
             </Glyph>
-         </children></HBox>
-      <StackPane fx:id="mainContent" layoutX="204.0" layoutY="79.0" prefHeight="513.0" prefWidth="695.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="7.666666666666629" AnchorPane.rightAnchor="0.6666666666666288" />
+            <ImageView fitHeight="67.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+               <image>
+                  <Image url="@../images/RCPS-IM.png" />
+               </image>
+            </ImageView>
+            <Circle fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
