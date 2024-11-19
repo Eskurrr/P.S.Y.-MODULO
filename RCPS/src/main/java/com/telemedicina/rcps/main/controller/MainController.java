@@ -38,9 +38,17 @@ public class MainController extends Users {
     @FXML
     public ToggleGroup maintoggle;
     @FXML
-    public Glyph NurseIcon;
-    @FXML
     public MFXRadioButton NursesButton;
+    @FXML
+    private MFXRadioButton MeasuresButton;
+    @FXML
+    private Glyph NursesIcon;
+    @FXML
+    private Glyph MeasuresIcon;
+    @FXML
+    private Glyph myDataIcon;
+    @FXML
+    private MFXRadioButton myDataButton;
 
     @FXML
     public void initialize() {
@@ -83,11 +91,13 @@ public class MainController extends Users {
     @FXML
     public void icons(){
         IconSetup(menuIcon , BARS);
-        IconSetup(PatientsIcon , USER);
-        IconSetup(DevicesIcon , MOBILE_PHONE);
-        IconSetup(NurseIcon , HOSPITAL_ALT);
+        IconSetup(PatientsIcon , USERS);
+        IconSetup(DevicesIcon , HEARTBEAT);
+        IconSetup(NursesIcon , USER_MD);
+        IconSetup(myDataIcon , USER);
+        IconSetup(MeasuresIcon , LINE_CHART);
     }
-    @FXML
+    @Deprecated
     public void IconSetup (Glyph icon , FontAwesome.Glyph glph){
         icon.setIcon(glph);
         MFXRadioButton Rbt = (MFXRadioButton) icon.getGraphic();
@@ -104,5 +114,13 @@ public class MainController extends Users {
     @FXML
     public void DevicesClicked(ActionEvent actionEvent) {
         loadView("DevicesScreen.fxml");
+    }
+
+    @FXML
+    public void MeasuresClicked(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void DataClicked(ActionEvent actionEvent) {
     }
 }

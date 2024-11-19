@@ -24,21 +24,41 @@
          </Label>
          <VBox alignment="CENTER" prefHeight="496.0" prefWidth="200.0" spacing="10.0">
             <children>
-               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="159.0" prefHeight="85.0" prefWidth="200.0">
+               <VBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
                   <children>
-                     <Glyph fx:id="DevicesIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                     <Glyph fx:id="myDataIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
                         <graphic>
-                           <MFXRadioButton fx:id="DevicesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#DevicesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio">
+                           <MFXRadioButton fx:id="myDataButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#DataClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio">
                               <toggleGroup>
                                  <ToggleGroup fx:id="maintoggle" />
                               </toggleGroup>
                            </MFXRadioButton>
                         </graphic>
                      </Glyph>
-                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Devices" textAlignment="CENTER" />
+                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="My Data" textAlignment="CENTER" />
                   </children>
                </VBox>
                <VBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
+                  <children>
+                     <Glyph fx:id="MeasuresIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                        <graphic>
+                           <MFXRadioButton fx:id="MeasuresButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#MeasuresClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
+                        </graphic>
+                     </Glyph>
+                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Measures" textAlignment="CENTER" />
+                  </children>
+               </VBox>
+               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="168.0" prefHeight="85.0" prefWidth="200.0">
+                  <children>
+                     <Glyph fx:id="DevicesIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                        <graphic>
+                           <MFXRadioButton fx:id="DevicesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#DevicesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
+                        </graphic>
+                     </Glyph>
+                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Devices" textAlignment="CENTER" />
+                  </children>
+               </VBox>
+               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="215.0" prefHeight="85.0" prefWidth="200.0">
                   <children>
                      <Glyph fx:id="PatientsIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
                         <graphic>
@@ -48,11 +68,11 @@
                      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Patients" textAlignment="CENTER" />
                   </children>
                </VBox>
-               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="168.0" prefHeight="85.0" prefWidth="200.0">
+               <VBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
                   <children>
-                     <Glyph fx:id="NurseIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                     <Glyph fx:id="NursesIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
                         <graphic>
-                           <MFXRadioButton fx:id="NursesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#NursesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
+                           <MFXRadioButton fx:id="NursesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#NursesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
                         </graphic>
                      </Glyph>
                      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Nurses" textAlignment="CENTER" />
