@@ -1,5 +1,6 @@
 package com.telemedicina.rcps.main.controller;
 
+import data.Paciente;
 import data.Users;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -14,13 +15,17 @@ public class AddPatientController extends Users {
     @FXML
     private void handleAddPatient(){
         String name = nameField.getText();
-        String age = ageField.getText();
-        String phone = phoneField.getText();
+        int age = Integer.parseInt(ageField.getText());
+        String telefono = phoneField.getText();
         String address = addressField.getText();
         String diagnostic = diagnosticField.getText();
+        String id = "0000";
+
+        Paciente pt = new Paciente(name,  age,  telefono,  address,  diagnostic ,  id);
 
 
-        if (name.isEmpty() || age.isEmpty() || phone.isEmpty()){
+
+        if (name.isEmpty() || age == 0 || telefono.isEmpty()){
             showAlert("Validation Error", "Please fill in all required fields.");
             return;
         }
