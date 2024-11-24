@@ -62,9 +62,7 @@ public class AddPatientController extends Users {
         diagnosticField.clear();
         sexChoiceBox.setValue(null);
 
-
     }
-
 
 }
 
