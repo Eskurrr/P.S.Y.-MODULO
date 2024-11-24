@@ -11,6 +11,10 @@ public class AddPatientController extends Users {
     private ChoiceBox<String> sexChoiceBox;
     @FXML
     private Button addPatientButton;
+    @FXML
+    private void initizalise (){
+        sexChoiceBox.getItems().addAll("Male","Female","Other");
+    }
 
     @FXML
     private void handleAddPatient(){
@@ -21,23 +25,46 @@ public class AddPatientController extends Users {
         String diagnostic = diagnosticField.getText();
         String id = "0000";
 
-        Paciente pt = new Paciente(name,  age,  telefono,  address,  diagnostic ,  id);
-
-
-
-        if (name.isEmpty() || age == 0 || telefono.isEmpty()){
+        if (name.isEmpty()  || address.isEmpty() || diagnostic.isEmpty() || age == 0 || telefono.isEmpty()){
             showAlert("Validation Error", "Please fill in all required fields.");
             return;
         }
 
+        try {
+            if (age < 0 ) {
+                showAlert ("Validation Error", "Age cannot be negative.");
+                return;
+            }
+            } catch (NumberFormatException e){
+            showAlert("Validation error", "Please, enter a valid age");
+            return;
+        }
+
+        Paciente pt = new Paciente (name,  age,  telefono,  address,  diagnostic ,  id);
+
         System.out.println("Patient added: " + name);
         showAlert("Success", "Patient added successfully!");
-
+        clearFields();
     }
+
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    private void clearFields (){
+        nameField.clear();
+        ageField.clear();
+        phoneField.clear();
+        addressField.clear();
+        diagnosticField.clear();
+        sexChoiceBox.setValue(null);
+
+
+    }
+
+
 }
+
