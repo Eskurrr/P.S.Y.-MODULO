@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane cacheShape="false" centerShape="false" dividerPositions="0.5" focusTraversable="false" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" scaleShape="false" stylesheets="@Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
+<SplitPane cacheShape="false" centerShape="false" dividerPositions="0.5" focusTraversable="false" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" scaleShape="false" stylesheets="@../css/Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
   <items>
     <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
          <children>
             <VBox alignment="CENTER" layoutX="2.0" layoutY="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="296.0" spacing="10.0">
                <children>
                   <Label prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #FF45FF22; -fx-background-radius: 9;" text=" Enter your Type ID to continue with registration" />
-                  <MFXTextField maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@TextFields.css" />
+                  <MFXTextField maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
                   <MFXButton rippleColor="#dc05f8" style="-fx-background-color: #FF45FF22;" text="Continue" />
                </children>
             </VBox>
@@ -23,11 +23,11 @@
          <children>
             <VBox alignment="CENTER" layoutX="-3.0" layoutY="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="296.0" spacing="25.0" style="-fx-background-color: WHITE;">
                <children>
-                  <MFXTextField floatMode="ABOVE" floatingText="Name" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@TextFields.css" />
-                  <MFXTextField floatMode="ABOVE" floatingText="Phone number" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@TextFields.css" />
-                  <MFXTextField floatMode="ABOVE" floatingText="Email" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@TextFields.css" />
-                  <MFXTextField floatMode="ABOVE" floatingText="Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@TextFields.css" />
-                  <MFXTextField floatMode="ABOVE" floatingText="Confirm Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@TextFields.css" />
+                  <MFXTextField floatMode="ABOVE" floatingText="Name" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+                  <MFXTextField floatMode="ABOVE" floatingText="Phone number" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+                  <MFXTextField floatMode="ABOVE" floatingText="Email" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+                  <MFXTextField floatMode="ABOVE" floatingText="Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+                  <MFXTextField floatMode="ABOVE" floatingText="Confirm Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
                   <MFXButton rippleColor="#dc05f8" style="-fx-background-color: #FF45FF22;" text="Sign Up" />
                </children>
             </VBox>
