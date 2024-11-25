@@ -1,45 +1,61 @@
 package data;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Users {
-
-
-    private static List<Usuario> usuarios = new ArrayList<Usuario>();
+    private static List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
+    private static List<Relation> relaciones = new ArrayList<Relation>();
+    private static List<Paciente> pacientes = new ArrayList<Paciente>();
+    private static List<Enfermero> enfermeros = new ArrayList<Enfermero>();
+    private static List<Medico> medicos = new ArrayList<Medico>();
     private static List<Usuario> LogIn = new ArrayList<Usuario>();
 
-    private Gson gson = new Gson();
-
-    public void addUser(Usuario user) {
-        usuarios.add(user);
-        saveUsersToJson();
+    public static List<Dispositivo> getDispositivos() {
+        return dispositivos;
     }
 
-    public void saveUsersToJson() {
-        try (FileWriter writer = new FileWriter("users.json")) {
-            gson.toJson(usuarios, writer);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void setDispositivos(List<Dispositivo> dispositivos) {
+        Users.dispositivos = dispositivos;
     }
 
-    public List<Usuario> loadUsersFromJson() {
-        try (FileReader reader = new FileReader("users.json")) {
-            Type userListType = new TypeToken<List<Usuario>>() {
-            }.getType();
-            return gson.fromJson(reader, userListType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
+    public static List<Relation> getRelaciones() {
+        return relaciones;
+    }
 
-        }}}
+    public static void setRelaciones(List<Relation> relaciones) {
+        Users.relaciones = relaciones;
+    }
+
+    public static List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public static void setPacientes(List<Paciente> pacientes) {
+        Users.pacientes = pacientes;
+    }
+
+    public static List<Enfermero> getEnfermeros() {
+        return enfermeros;
+    }
+
+    public static void setEnfermeros(List<Enfermero> enfermeros) {
+        Users.enfermeros = enfermeros;
+    }
+
+    public static List<Medico> getMedicos() {
+        return medicos;
+    }
+
+    public static void setMedicos(List<Medico> medicos) {
+        Users.medicos = medicos;
+    }
+
+    public static List<Usuario> getLogIn() {
+        return LogIn;
+    }
+
+    public static void setLogIn(List<Usuario> logIn) {
+        LogIn = logIn;
+    }
+}
