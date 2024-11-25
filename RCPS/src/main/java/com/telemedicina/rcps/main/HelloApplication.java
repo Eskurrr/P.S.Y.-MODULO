@@ -13,6 +13,8 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage Pstage) throws IOException {
+
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/telemedicina/rcps/fxml/LoginScreen.fxml"));
         Parent root = loader.load();
         HandlerController handlerController = new HandlerController(Pstage);

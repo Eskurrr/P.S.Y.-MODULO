@@ -4,9 +4,9 @@ public class Paciente extends Usuario{
     private String nombre;
     private int edad;
     private String telefono;
-    private String direccion;
+    private String address;
     private String diagnostico;
-    public Paciente(String nombre, int edad, String telefono, String direccion, String diagnostico , String id) {
+    public Paciente(String nombre, int edad, String telefono, String address, String diagnostico , String id) {
         super.setCorreo("");
         super.setPassword("");
         String idP = "3333" + id;
@@ -14,7 +14,7 @@ public class Paciente extends Usuario{
         this.nombre = nombre;
         this.edad = edad;
         this.telefono = telefono;
-        this.direccion = direccion;
+        this.address = address;
         this.diagnostico = diagnostico;
     }
 
@@ -42,12 +42,12 @@ public class Paciente extends Usuario{
         this.telefono = telefono;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getDiagnostico() {
@@ -57,4 +57,6 @@ public class Paciente extends Usuario{
     public void setDiagnostico(String diagnostico) {
         this.diagnostico = diagnostico;
     }
+
+    //ID
 }
