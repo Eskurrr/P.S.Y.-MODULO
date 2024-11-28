@@ -87,6 +87,6 @@ public class LoginController extends Users {
 
     @FXML
     public void forgotLogin(ActionEvent actionEvent) {
-        handlerController.changeWindow("/com/telemedicina/rcps/fxml/PasswordScreen.fxml");
+        handlerController.changeWindow("/com/telemedicina/rcps/fxml/ForgotPasswordScreen.fxml");
     }
 }

@@ -41,6 +41,6 @@
   -fx-background-color: white;
 }
 .mfx-button .mfx-ripple-generator {
-  -mfx-ripple-radius: -fx-background-radius;
+  -mfx-ripple-radius: 40;
   -mfx-auto-clip: true;
 }

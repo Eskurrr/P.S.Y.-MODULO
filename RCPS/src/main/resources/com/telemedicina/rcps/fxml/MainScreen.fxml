@@ -3,6 +3,8 @@
 <?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +14,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.glyphfont.Glyph?>
 
@@ -89,28 +90,47 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <StackPane fx:id="mainContent" layoutX="204.0" layoutY="79.0" prefHeight="513.0" prefWidth="695.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="7.666666666666629" AnchorPane.rightAnchor="0.6666666666666288" />
-      <GridPane fx:id="mainMenu" layoutX="168.0" prefHeight="60.0" prefWidth="732.0" style="-fx-background-color: #66666611;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="mainContent" layoutX="204.0" layoutY="79.0" prefHeight="528.0" prefWidth="732.0" stylesheets="@../css/StackPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <GridPane fx:id="mainMenu" layoutX="168.0" prefHeight="60.0" prefWidth="732.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.6666259765625" minWidth="10.0" prefWidth="40.00001525878906" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="447.99998474121094" minWidth="10.0" prefWidth="447.99998474121094" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Glyph fx:id="menuIcon" alignment="TOP_CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="20.0" graphicTextGap="0.0" prefHeight="0.0" prefWidth="28.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+            <Glyph fx:id="menuIcon" alignment="TOP_CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="20.0" graphicTextGap="0.0" prefHeight="45.0" prefWidth="57.0" style="-fx-cursor: HAND;" viewOrder="1.0" GridPane.rowIndex="1">
                <graphic>
                   <MFXRadioButton fx:id="bt_menu" alignment="TOP_CENTER" cache="true" contentDisplay="CENTER" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#toggleMenu" prefHeight="58.0" prefWidth="69.0" radioGap="0.0" radius="22.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio" textFill="TRANSPARENT" />
                </graphic>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
             </Glyph>
-            <ImageView fitHeight="67.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-               <image>
-                  <Image url="@../images/RCPS-IM.png" />
-               </image>
-            </ImageView>
-            <Circle fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" />
+            <StackPane alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <MenuButton fx:id="MenuBt" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#MenuClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 80; -fx-border-radius: 80;" StackPane.alignment="CENTER_RIGHT">
+                    <items>
+                      <MenuItem fx:id="MyInfoBt" mnemonicParsing="false" onAction="#MyInfoClicked" text="My Info" />
+                      <MenuItem fx:id="ContactBt" mnemonicParsing="false" onAction="#ContactClicked" text="Contact Us" />
+                    </items>
+                     <StackPane.margin>
+                        <Insets right="4.0" />
+                     </StackPane.margin>
+                  </MenuButton>
+                  <ImageView fx:id="UserImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ROUND-LOGO.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </StackPane>
          </children>
       </GridPane>
    </children>
