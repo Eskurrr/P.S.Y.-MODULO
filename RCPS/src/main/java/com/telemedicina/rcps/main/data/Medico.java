@@ -1,4 +1,4 @@
-package data;
+package com.telemedicina.rcps.main.data;
 
 import java.util.ArrayList;
 import java.util.List;

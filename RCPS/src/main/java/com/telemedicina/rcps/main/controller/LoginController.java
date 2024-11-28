@@ -1,6 +1,7 @@
 package com.telemedicina.rcps.main.controller;
 
-import data.Users;
+
+import com.telemedicina.rcps.main.data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
