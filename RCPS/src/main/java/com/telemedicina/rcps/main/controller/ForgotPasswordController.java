@@ -10,7 +10,7 @@ import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 
-public class PasswordController {
+public class ForgotPasswordController {
     @FXML
     private MFXTextField txt_email;
     @FXML

@@ -6,7 +6,10 @@ import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
@@ -40,6 +43,8 @@ public class MainController extends Users {
     @FXML
     public MFXRadioButton NursesButton;
     @FXML
+    public ImageView UserImage;
+    @FXML
     private MFXRadioButton MeasuresButton;
     @FXML
     private Glyph NursesIcon;
@@ -49,12 +54,19 @@ public class MainController extends Users {
     private Glyph myDataIcon;
     @FXML
     private MFXRadioButton myDataButton;
+    @FXML
+    private MenuItem ContactBt;
+    @FXML
+    private MenuItem MyInfoBt;
+    @FXML
+    private MenuButton MenuBt;
 
     @FXML
     public void initialize() {
         SidePanelSetup();
         icons();
         DevicesButton.setSelected(true);
+        UserImage.setMouseTransparent(true);
         loadView("DevicesScreen.fxml");
     }
     @FXML
@@ -122,5 +134,17 @@ public class MainController extends Users {
 
     @FXML
     public void DataClicked(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void ContactClicked(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void MyInfoClicked(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void MenuClicked(ActionEvent actionEvent) {
     }
 }
