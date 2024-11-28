@@ -15,27 +15,11 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MaterialFX.  If not, see <http://www.gnu.org/licenses/>.
  */
+@import 'Common.css';
+@import 'MFXColors.css';
 
-.mfx-button {
-  -fx-font-family: "Open Sans Regular";
-  -fx-text-fill: transparent;
-  -fx-background-color: #AA47F988;
-}
-
-.mfx-button:armed,
-.mfx-button:hover,
-.mfx-button:focused,
-.mfx-button {
-  -fx-background-radius: 3;
-  -fx-background-insets: 0px;
-}
-
-.mfx-button,
-.mfx-button:armed,
-.mfx-button:focused {
-  -fx-background-color: white;
-}
-.mfx-button .mfx-ripple-generator {
-  -mfx-ripple-radius: 30;
-  -mfx-auto-clip: true;
+.stack-pane:focused {
+    -fx-border-color: transparent; /* Remove the border */
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
 }

@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.glyphfont.Glyph?>
 
-<AnchorPane prefHeight="540.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.DevicesController">
+<AnchorPane focusTraversable="false" prefHeight="540.0" prefWidth="900.0" stylesheets="@../css/AnchorPane.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.DevicesController">
     <children>
-        <MFXScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="581.0" prefWidth="846.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <MFXScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" prefHeight="581.0" prefWidth="846.0" stylesheets="@../css/MFXScrollPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <content>
-                <GridPane alignment="CENTER" focusTraversable="true" prefHeight="894.0" prefWidth="843.0" vgap="30.0">
+                <GridPane alignment="CENTER" focusTraversable="false" hgap="20.0" prefHeight="894.0" prefWidth="843.0" stylesheets="@../css/GridPane.css" vgap="20.0">
                     <!-- Disable horizontal growth and let the columns stay at their preferred width -->
                     <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -33,7 +33,10 @@
 
                     <!-- Add buttons to the grid -->
                     <children>
-                        <MFXButton fx:id="DV3" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <MFXButton fx:id="DV3" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></MFXButton>
                         <MFXButton fx:id="DV4" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         <MFXButton fx:id="DV5" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                         <MFXButton fx:id="DV6" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
@@ -77,13 +80,8 @@
                   </MFXButton>
                   <MFXButton fx:id="DV2" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="453.0" layoutY="331.0" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                     </children>
-
-                    <padding>
-                        <Insets top="10.0" />
-                    </padding>
                 </GridPane>
             </content>
         </MFXScrollPane>
-      <Glyph />
     </children>
 </AnchorPane>
