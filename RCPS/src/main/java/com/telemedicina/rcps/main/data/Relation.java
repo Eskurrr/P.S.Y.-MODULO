@@ -1,4 +1,4 @@
-package data;
+package com.telemedicina.rcps.main.data;
 
 public class Relation {
     private char[] master = new char[8] ;

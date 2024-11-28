@@ -1,4 +1,4 @@
-package data;
+package com.telemedicina.rcps.main.data;
 
 public class Usuario {
    private char[] id = new char[8] ;
