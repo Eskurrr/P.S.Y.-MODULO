@@ -56,17 +56,35 @@
 .link-button {
 	-fx-background-color: transparent;
 	-fx-border-radius: 3;
-	-fx-text-fill: #0096FF;
+	-fx-text-fill: #73D1E5;
 	-fx-underline: true;
 	-fx-cursor: hand;
 }
 
 .link-button:armed,
 .link-button:focused {
-	-fx-border-color: #006BFF;
-	-fx-text-fill: #006BFF;
+	-fx-border-color: transparent;
+	-fx-text-fill: #0050B8;
 }
 
 .link-button .mfx-ripple-generator {
-	-mfx-ripple-color: #D9E9FF;
+	-mfx-ripple-color: #CCF6FF;
+}
+
+.link-button2 {
+	-fx-background-color: transparent;
+	-fx-border-radius: 3;
+	-fx-text-fill: #BBA0FF; /* Purple color */
+	-fx-underline: true;
+	-fx-cursor: hand;
+}
+
+.link-button2:armed,
+.link-button2:focused {
+	-fx-border-color: transparent; /* Darker purple for interaction feedback */
+	-fx-text-fill: #7564A0;
+}
+
+.link-button2 .mfx-ripple-generator {
+	-mfx-ripple-color: #DDCFFF; /* Light purple ripple effect */
 }
