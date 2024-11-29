@@ -1,0 +1,20 @@
+@import '../fonts/Fonts.css';
+@import 'Common.css';
+@import 'MFXColors.css';
+
+.chart {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-border-color: transparent;    /* No border */
+}
+
+/* Title of the chart */
+.chart-title {
+    -fx-font-size: 20;       /* Title font size */
+    -fx-font-family: "Comfortaa Regular"; /* Title font family */
+    -fx-text-fill: #333333;   /* Title text color */
+}
+
+/* Plot area background */
+.chart-plot-background {
+    -fx-background-color: transparent; /* Transparent plot area */
+}

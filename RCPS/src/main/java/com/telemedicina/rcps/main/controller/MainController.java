@@ -75,11 +75,13 @@ public class MainController extends Users {
         if (!bt_menu.isSelected()) {
             sidePanel.setPrefWidth(0); // Collapse the side panel
             sidePanel.setVisible(false);
+            System.out.println("WIDTH:" + mainContent.getWidth());
+            System.out.println("HEIGHT:" + mainContent.getHeight());
         }else {
-        sidePanel.setPrefWidth(160); // Expand the side panel
-        sidePanel.setVisible(true);
-        System.out.println("WIDTH:" + mainContent.getWidth());
-        System.out.println("HEIGHT:" + mainContent.getHeight());
+            sidePanel.setPrefWidth(160); // Expand the side panel
+            sidePanel.setVisible(true);
+            System.out.println("WIDTH:" + mainContent.getWidth());
+            System.out.println("HEIGHT:" + mainContent.getHeight());
     }
     }
     @FXML
@@ -122,17 +124,14 @@ public class MainController extends Users {
     }
     @FXML
     public void NursesClicked(ActionEvent actionEvent) {
-
     }
     @FXML
     public void DevicesClicked(ActionEvent actionEvent) {
         loadView("DevicesScreen.fxml");
     }
-
     @FXML
-    public void MeasuresClicked(ActionEvent actionEvent) {
+    public void MeasuresClicked(ActionEvent actionEvent) { loadView("MeasuresScreen.fxml");
     }
-
     @FXML
     public void DataClicked(ActionEvent actionEvent) {
     }

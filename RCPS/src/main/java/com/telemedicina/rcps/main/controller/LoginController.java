@@ -19,6 +19,8 @@ import java.io.IOException;
 
 public class LoginController extends Users {
     @FXML
+    public MFXButton bt_CreateAcc;
+    @FXML
     private Label txt_warning;
     @FXML
     private PasswordField txt_password;
@@ -89,5 +91,9 @@ public class LoginController extends Users {
     @FXML
     public void forgotLogin(ActionEvent actionEvent) {
         handlerController.changeWindow("/com/telemedicina/rcps/fxml/ForgotPasswordScreen.fxml");
+    }
+
+    public void CreateAccount(ActionEvent actionEvent) {
+        handlerController.changeWindow("/com/telemedicina/rcps/fxml/RegisterScreen.fxml");
     }
 }
