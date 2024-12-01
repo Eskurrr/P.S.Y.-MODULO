@@ -7,16 +7,23 @@ public class Medico extends Usuario{
     private String nombre;
     private int edad;
     private String telefono;
+    private String correo;
     public Medico(String nombre, int edad, String telefono , String id) {
         this.nombre = nombre;
         this.edad = edad;
         this.telefono = telefono;
-        super.setCorreo("");
+        this.setCorreo("");
         super.setPassword("");
         String idP = "1111" + id;;
         super.setId(idP.toCharArray());
     }
+    public String getCorreo() {
+        return correo;
+    }
 
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
     public String getNombre() {
         return nombre;
     }
