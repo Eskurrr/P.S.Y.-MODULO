@@ -1,8 +1,8 @@
 package com.telemedicina.rcps.main.data;
 
 public class Usuario {
-   private char[] id = new char[8] ;
-   private String password;
+    private char[] id = new char[8] ;
+    private String password;
 
     public char[] getId() {
         return id;

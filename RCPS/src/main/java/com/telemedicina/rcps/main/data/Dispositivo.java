@@ -3,27 +3,18 @@ package com.telemedicina.rcps.main.data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dispositivo {
-    private char[] id = new char[8] ;
+public class Dispositivo extends Usuario{
     private char[] idPatient = new char[8] ;
     private String date;
     private int[] medida;
     public Dispositivo(String id, String idPatient, String date, int[] medida) {
         String idP = "4444" + id;
-        this.id = idP.toCharArray();
+        super.setId(idP.toCharArray());
         this.idPatient = idPatient.toCharArray();
         this.date = date;
         this.medida = medida;
+        super.setPassword("");
     }
-
-    public char[] getId() {
-        return id;
-    }
-
-    public void setId(char[] id) {
-        this.id = id;
-    }
-
     public char[] getIdPatient() {
         return idPatient;
     }

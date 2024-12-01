@@ -7,14 +7,22 @@ public class Enfermero extends Usuario {
     private String nombre;
     private int edad;
     private String telefono;
+    private String correo;
     public Enfermero(String nombre, int edad, String telefono, String id) {
         this.nombre = nombre;
         this.edad = edad;
         this.telefono = telefono;
-        super.setCorreo("");
+        this.setCorreo("");
         super.setPassword("");
-        String idP = "2222" + id;;
+        String idP = "2222" + id;
         super.setId(idP.toCharArray());
+    }
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
     public String getNombre() {
         return nombre;
