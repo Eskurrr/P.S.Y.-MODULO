@@ -9,11 +9,9 @@ public class AddPatientController extends Users {
     @FXML
     private TextField nameField, ageField, emailField, diagnosticField, phoneField, addressField;
     @FXML
-    private ChoiceBox<String> sexChoiceBox;
-    @FXML
     private Button addPatientButton;
     @FXML
-    public void initialize() {sexChoiceBox.getItems().addAll("Male","Female","Other");
+    public void initialize() {
     }
 
     @FXML
@@ -60,7 +58,6 @@ public class AddPatientController extends Users {
         phoneField.clear();
         addressField.clear();
         diagnosticField.clear();
-        sexChoiceBox.setValue(null);
 
     }
 
