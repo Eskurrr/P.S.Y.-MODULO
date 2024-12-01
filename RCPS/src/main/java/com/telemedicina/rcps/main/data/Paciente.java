@@ -1,4 +1,4 @@
-package data;
+package com.telemedicina.rcps.main.data;
 
 public class Paciente extends Usuario{
     private String nombre;

@@ -1,7 +1,8 @@
 package com.telemedicina.rcps.main.controller;
 
-import data.Paciente;
-import data.Users;
+
+import com.telemedicina.rcps.main.data.Paciente;
+import com.telemedicina.rcps.main.data.Users;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 public class AddPatientController extends Users {
@@ -12,8 +13,7 @@ public class AddPatientController extends Users {
     @FXML
     private Button addPatientButton;
     @FXML
-    private void initizalise (){
-        sexChoiceBox.getItems().addAll("Male","Female","Other");
+    public void initialize() {sexChoiceBox.getItems().addAll("Male","Female","Other");
     }
 
     @FXML

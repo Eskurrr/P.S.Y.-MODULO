@@ -1,10 +1,14 @@
 package com.telemedicina.rcps.main.controller;
 
-import data.Users;
+
+import com.telemedicina.rcps.main.data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -12,11 +16,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 
 public class LoginController extends Users {
+    @FXML
+    public MFXButton bt_CreateAcc;
     @FXML
     private Label txt_warning;
     @FXML
@@ -27,11 +35,6 @@ public class LoginController extends Users {
     private TextField txt_username;
     @FXML
     private MFXButton bt_forgot;
-
-    private HandlerController handlerController;
-    public void setMainController(HandlerController handlerController) {
-        this.handlerController = handlerController;
-    }
     @FXML
     void clickLogin(ActionEvent event) throws IOException {
         txt_username.setStyle("");
@@ -59,7 +62,7 @@ public class LoginController extends Users {
             txt_warning.setText("Successful login: " + username);
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
-                handlerController.changeWindow("/com/telemedicina/rcps/fxml/MainScreen.fxml");
+                changeWindow("/com/telemedicina/rcps/fxml/MainScreen.fxml");
             });
             pause.play();
 
@@ -84,9 +87,27 @@ public class LoginController extends Users {
             txt_password.requestFocus();
         }
     }
+    public void changeWindow(String fxml) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = fxmlLoader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.initModality(Modality.WINDOW_MODAL);
+            Stage stage = (Stage) bt_click.getScene().getWindow();
+            stage.close();
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void forgotLogin(ActionEvent actionEvent) {
-        handlerController.changeWindow("/com/telemedicina/rcps/fxml/ForgotPasswordScreen.fxml");
+        changeWindow("/com/telemedicina/rcps/fxml/ForgotPasswordScreen.fxml");
+    }
+
+    public void CreateAccount(ActionEvent actionEvent) {
+        changeWindow("/com/telemedicina/rcps/fxml/RegisterIDScreen.fxml");
     }
 }
