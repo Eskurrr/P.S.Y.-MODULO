@@ -7,8 +7,8 @@ public class Dispositivo {
     private char[] id = new char[8] ;
     private char[] idPatient = new char[8] ;
     private String date;
-    private String medida;
-    public Dispositivo(String id, String idPatient, String date, String medida) {
+    private int[] medida;
+    public Dispositivo(String id, String idPatient, String date, int[] medida) {
         String idP = "4444" + id;
         this.id = idP.toCharArray();
         this.idPatient = idPatient.toCharArray();
@@ -40,11 +40,11 @@ public class Dispositivo {
         this.date = date;
     }
 
-    public String getMedida() {
+    public int[] getMedida() {
         return medida;
     }
 
-    public void setMedida(String medida) {
+    public void setMedida(int[] medida) {
         this.medida = medida;
     }
 }

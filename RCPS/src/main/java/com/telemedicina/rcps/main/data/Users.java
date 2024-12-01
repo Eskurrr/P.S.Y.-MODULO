@@ -10,7 +10,6 @@ public class Users {
     private static List<Enfermero> enfermeros = new ArrayList<Enfermero>();
     private static List<Medico> medicos = new ArrayList<Medico>();
     private static List<Usuario> LogIn = new ArrayList<Usuario>();
-
     public static List<Dispositivo> getDispositivos() {
         return dispositivos;
     }

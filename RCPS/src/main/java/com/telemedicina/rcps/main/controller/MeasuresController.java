@@ -1,23 +1,37 @@
 package com.telemedicina.rcps.main.controller;
 
+import com.telemedicina.rcps.main.data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 
-public class MeasuresController {
+public class MeasuresController extends Users {
     @FXML
     public MFXButton OverviewBT;
     @FXML
-    public LineChart OverviewChart;
+    public LineChart<Number, Number> OverviewChart;
     @FXML
     public MFXButton HeartRateBT;
     @FXML
-    public LineChart HeartRateChart;
+    public LineChart<Number, Number> HeartRateChart;
     @FXML
     public MFXButton OxygenBT;
     @FXML
-    public LineChart OxygenChart;
+    public LineChart<Number, Number> OxygenChart;
+    @FXML
+    public void initialize() {
+
+    }
+    public XYChart.Series<Number, Number> drawData(int[] data){
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        for (int i = 0; i < data.length; i++) {
+            series.getData().add(new XYChart.Data<>(i, data[i]));
+        }
+        return series;
+    }
+
     @FXML
     public void OverviewClicked(ActionEvent actionEvent) {
     }
