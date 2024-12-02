@@ -1,6 +1,7 @@
 package com.telemedicina.rcps.main.controller;
 
 import com.telemedicina.rcps.main.HelloApplication;
+import com.telemedicina.rcps.main.data.Paciente;
 import com.telemedicina.rcps.main.data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class RegisterPatientController extends Users{
     @FXML
@@ -33,6 +35,10 @@ public class RegisterPatientController extends Users{
         String email = email_text.getText();
         String password = password_text.getText();
         String cpassword = cpassword_text.getText();
+        char[] typeID = getIDMainUser();
+        String fullID = Arrays.toString(typeID);
+        String code = fullID.substring(4, 8);
+        Paciente patient = (Paciente) getMainUser();
         boolean empty = false;
         if (email.isEmpty()){
             email_text.getStyleClass().add("warning");
@@ -58,6 +64,9 @@ public class RegisterPatientController extends Users{
         else {
             warning_label.setTextFill(Color.GREEN);
             warning_label.setText("Successful registration!");
+            patient.setCorreo(email);
+            patient.setPassword(password);
+
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
                 HelloApplication app = new HelloApplication();

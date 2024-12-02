@@ -11,6 +11,8 @@ public class Users {
     private static List<Medico> medicos = new ArrayList<Medico>();
     private static List<Usuario> LogIn = new ArrayList<Usuario>();
     private static Usuario MainUser;
+    private static char[] IDMainUser = new char[8];
+
 
     public static Usuario getMainUser() {
         return MainUser;
@@ -42,6 +44,7 @@ public class Users {
         return enfermeros;
     }
 
+
     public static void setEnfermeros(List<Enfermero> enfermeros) {
         Users.enfermeros = enfermeros;
     }
@@ -60,5 +63,13 @@ public class Users {
 
     public static void setLogIn(List<Usuario> logIn) {
         LogIn = logIn;
+    }
+
+    public static char[] getIDMainUser() {
+        return IDMainUser;
+    }
+
+    public static void setIDMainUser(char[] IDMainUser) {
+        Users.IDMainUser = IDMainUser;
     }
 }
