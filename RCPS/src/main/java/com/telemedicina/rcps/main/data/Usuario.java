@@ -3,6 +3,7 @@ package com.telemedicina.rcps.main.data;
 public class Usuario {
    private char[] id = new char[8] ;
    private String password;
+   private String correo;
 
     public char[] getId() {
         return id;
@@ -18,5 +19,13 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }

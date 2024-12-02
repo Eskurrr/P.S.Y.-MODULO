@@ -50,7 +50,12 @@ public class RegisterPatientController extends Users{
             warning_label.setTextFill(Color.RED);
             warning_label.setText("Enter your information");
 
-        } else {
+        } else if(!password.equals(cpassword)){
+
+           warning_label.setTextFill(Color.RED);
+           warning_label.setText("Your passwords do not match");
+           }
+        else {
             warning_label.setTextFill(Color.GREEN);
             warning_label.setText("Successful registration!");
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
