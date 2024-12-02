@@ -1,11 +1,14 @@
 package com.telemedicina.rcps.main.controller;
 
+import com.telemedicina.rcps.main.data.Dispositivo;
 import com.telemedicina.rcps.main.data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+
+import java.util.List;
 
 public class MeasuresController extends Users {
     @FXML
@@ -20,10 +23,13 @@ public class MeasuresController extends Users {
     public MFXButton OxygenBT;
     @FXML
     public LineChart<Number, Number> OxygenChart;
+    public List<int[]> measures;
     @FXML
     public void initialize() {
-
+        OverviewChart.getData().clear();
+        OverviewChart.getData().add(drawData(measures.get(1)));
     }
+
     public XYChart.Series<Number, Number> drawData(int[] data){
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         for (int i = 0; i < data.length; i++) {

@@ -6,8 +6,9 @@ public class Paciente extends Usuario{
     private String telefono;
     private String address;
     private String diagnostico;
+    private String correo;
     public Paciente(String nombre, int edad, String telefono, String address, String diagnostico , String id) {
-        super.setCorreo("");
+        this.setCorreo("");
         super.setPassword("");
         String idP = "3333" + id;
         super.setId(idP.toCharArray());
@@ -17,7 +18,13 @@ public class Paciente extends Usuario{
         this.address = address;
         this.diagnostico = diagnostico;
     }
+    public String getCorreo() {
+        return correo;
+    }
 
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
     public String getNombre() {
         return nombre;
     }

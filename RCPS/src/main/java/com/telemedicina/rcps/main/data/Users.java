@@ -10,22 +10,26 @@ public class Users {
     private static List<Enfermero> enfermeros = new ArrayList<Enfermero>();
     private static List<Medico> medicos = new ArrayList<Medico>();
     private static List<Usuario> LogIn = new ArrayList<Usuario>();
+    private static Usuario MainUser;
+
+    public static Usuario getMainUser() {
+        return MainUser;
+    }
+    public static void setMainUser(Usuario mainUser) {
+        Users.MainUser = mainUser;
+    }
     public static List<Dispositivo> getDispositivos() {
         return dispositivos;
     }
-
     public static void setDispositivos(List<Dispositivo> dispositivos) {
         Users.dispositivos = dispositivos;
     }
-
     public static List<Relation> getRelaciones() {
         return relaciones;
     }
-
     public static void setRelaciones(List<Relation> relaciones) {
         Users.relaciones = relaciones;
     }
-
     public static List<Paciente> getPacientes() {
         return pacientes;
     }
