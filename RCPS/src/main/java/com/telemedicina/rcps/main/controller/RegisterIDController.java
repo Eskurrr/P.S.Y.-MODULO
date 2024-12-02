@@ -56,7 +56,7 @@ public class RegisterIDController extends Users {
             typeID_empty.setText("Welcome to RCPS");
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
-                changeWindow("/com/telemedicina/rcps/fxml/RegisterMedicNurse.fxml");
+                changeWindow("/com/telemedicina/rcps/fxml/RegisterAdminScreen.fxml");
             });
             pause.play();
         } else {
