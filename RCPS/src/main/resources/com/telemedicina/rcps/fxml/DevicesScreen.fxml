@@ -33,14 +33,14 @@
 
                     <!-- Add buttons to the grid -->
                     <children>
-                        <MFXButton fx:id="DV3" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <MFXButton fx:id="DV3" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin></MFXButton>
-                        <MFXButton fx:id="DV4" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <MFXButton fx:id="DV5" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <MFXButton fx:id="DV6" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                  <MFXButton fx:id="DV1" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="31.0" layoutY="331.0" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <MFXButton fx:id="DV4" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <MFXButton fx:id="DV5" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                        <MFXButton fx:id="DV6" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <MFXButton fx:id="DV1" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="31.0" layoutY="331.0" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <graphic>
                         <GridPane fx:id="DV1_Pane">
                           <columnConstraints>
@@ -78,7 +78,7 @@
                         </GridPane>
                      </graphic>
                   </MFXButton>
-                  <MFXButton fx:id="DV2" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="453.0" layoutY="331.0" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: AA47F988;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <MFXButton fx:id="DV2" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="453.0" layoutY="331.0" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                     </children>
                 </GridPane>
             </content>
