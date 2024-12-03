@@ -29,34 +29,38 @@ public class RegisterIDController extends Users {
     public MFXButton continue_click;
     @FXML
     void clickContinue(ActionEvent actionEvent) throws IOException {
-        TypeIDText.setStyle("");
-        String typeID = TypeIDText.getText();
-        continue_click.requestFocus();
         boolean empty = false;
-        if (typeID.isEmpty()) {
+        TypeIDText.setStyle("");
+        continue_click.requestFocus();
+        String typeID = TypeIDText.getText();
+        String type = typeID.substring(0, 4);
+        char[] id = new char[8];
+        if (typeID.length()==8) {
+            id = typeID.toCharArray();
+        }   else {
             TypeIDText.getStyleClass().add("warning");
+            typeID_empty.setTextFill(Color.RED);
+            typeID_empty.setText("Your Type ID must be 8 digits");
             empty = true;
         }
-        if (empty) {
-            typeID_empty.setTextFill(Color.RED);
-            typeID_empty.setText("Enter your type id to continue");
-            typeID_empty.setDisable(false);
-            typeID_empty.setVisible(true);
-        } else if (typeID.equals("1111")) {
-            typeID_empty.setTextFill(Color.GREEN);
-            typeID_empty.setText("Welcome to RCPS");
+            if (type.equals("3333")) {
+                setIDMainUser(id);
+                typeID_empty.setTextFill(Color.GREEN);
+               typeID_empty.setText("Welcome to RCPS");
+
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
                 changeWindow("/com/telemedicina/rcps/fxml/RegisterPatientScreen.fxml");
             });
             pause.play();
 
-        } else if (typeID.equals("2222")) {
-            typeID_empty.setTextFill(Color.GREEN);
-            typeID_empty.setText("Welcome to RCPS");
-            PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
-            pause.setOnFinished(e -> {
-                changeWindow("/com/telemedicina/rcps/fxml/RegisterMedicNurse.fxml");
+        } else if (type.equals("1111") || type.equals("2222")){
+                setIDMainUser(id);
+                typeID_empty.setTextFill(Color.GREEN);
+                typeID_empty.setText("Welcome to RCPS");
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
+                pause.setOnFinished(e -> {
+                changeWindow("/com/telemedicina/rcps/fxml/RegisterAdminScreen.fxml");
             });
             pause.play();
         } else {

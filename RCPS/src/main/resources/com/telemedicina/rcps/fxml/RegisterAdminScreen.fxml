@@ -2,12 +2,13 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.RegisterAdminController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -17,12 +18,13 @@
     <children>
         <VBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="566.0" spacing="25.0" style="-fx-background-color: WHITE;">
             <children>
-                <MFXTextField floatMode="ABOVE" floatingText="Name" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;"  />
-                <MFXTextField floatMode="ABOVE" floatingText="Phone number" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
-                <MFXTextField floatMode="ABOVE" floatingText="Email" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;"  />
-                <MFXTextField floatMode="ABOVE" floatingText="Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;"  />
-                <MFXTextField floatMode="ABOVE" floatingText="Confirm Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;"  />
-                <MFXButton rippleColor="#dc05f8" style="-fx-background-color: #FF45FF22;" text="Sign Up" />
+                <MFXTextField fx:id="adminName" floatMode="ABOVE" floatingText="Name" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
+                <MFXTextField fx:id="adminNumber" floatMode="ABOVE" floatingText="Phone number" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
+                <MFXTextField fx:id="adminMail" floatMode="ABOVE" floatingText="Email" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
+                <MFXTextField fx:id="adminPassword" floatMode="ABOVE" floatingText="Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
+                <MFXTextField fx:id="adminConfirmP" floatMode="ABOVE" floatingText="Confirm Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
+            <Label fx:id="adminWarning" />
+                <MFXButton fx:id="adminRegister" onAction="#adminRegister_click" rippleColor="#dc05f8" style="-fx-background-color: #FF45FF22;" text="Sign Up" />
             </children>
         </VBox>
     </children>
