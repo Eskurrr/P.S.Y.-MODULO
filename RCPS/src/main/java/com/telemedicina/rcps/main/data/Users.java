@@ -1,7 +1,6 @@
 package com.telemedicina.rcps.main.data;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Users {
@@ -14,30 +13,25 @@ public class Users {
     private static Usuario MainUser;
     private static char[] IDMainUser = new char[8];
 
+
     public static Usuario getMainUser() {
         return MainUser;
     }
-
     public static void setMainUser(Usuario mainUser) {
         Users.MainUser = mainUser;
     }
-
     public static List<Dispositivo> getDispositivos() {
         return dispositivos;
     }
-
     public static void setDispositivos(List<Dispositivo> dispositivos) {
         Users.dispositivos = dispositivos;
     }
-
     public static List<Relation> getRelaciones() {
         return relaciones;
     }
-
     public static void setRelaciones(List<Relation> relaciones) {
         Users.relaciones = relaciones;
     }
-
     public static List<Paciente> getPacientes() {
         return pacientes;
     }
@@ -49,6 +43,7 @@ public class Users {
     public static List<Enfermero> getEnfermeros() {
         return enfermeros;
     }
+
 
     public static void setEnfermeros(List<Enfermero> enfermeros) {
         Users.enfermeros = enfermeros;
