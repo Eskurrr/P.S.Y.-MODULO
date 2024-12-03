@@ -19,7 +19,7 @@
 .mfx-button {
   -fx-font-family: "Open Sans Regular";
   -fx-text-fill: transparent;
-  -fx-background-color: #AA47F988;
+  -fx-background-color: #BBA0FF88;
 }
 
 .mfx-button:armed,
