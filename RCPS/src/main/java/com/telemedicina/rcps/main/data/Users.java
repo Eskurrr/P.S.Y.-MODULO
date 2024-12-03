@@ -82,7 +82,7 @@ public class Users {
     public Paciente SearchPaciente(char[] id) {
         int i = SearchID(getPacientes(), id);
         if (i == -1) {
-            System.out.println("Usuario no encontrado");
+            System.out.println("Paciente no encontrado");
             return null;
         } else {
             return getPacientes().get(i);
@@ -92,7 +92,7 @@ public class Users {
     public Medico SearchMedico(char[] id) {
         int i = SearchID(getMedicos(), id);
         if (i == -1) {
-            System.out.println("Usuario no encontrado");
+            System.out.println("Medico no encontrado");
             return null;
         } else {
             return getMedicos().get(i);
@@ -102,7 +102,7 @@ public class Users {
     public Enfermero SearchEnfermero(char[] id) {
         int i = SearchID(getEnfermeros(), id);
         if (i == -1) {
-            System.out.println("Usuario no encontrado");
+            System.out.println("Enfermero no encontrado");
             return null;
         } else {
             return getEnfermeros().get(i);
@@ -112,7 +112,7 @@ public class Users {
     public Dispositivo SearchDispositivo(char[] id) {
         int i = SearchID(getDispositivos(), id);
         if (i == -1) {
-            System.out.println("Usuario no encontrado");
+            System.out.println("Dispositivo no encontrado");
             return null;
         } else {
             return getDispositivos().get(i);
