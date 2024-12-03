@@ -26,8 +26,8 @@ public class MeasuresController extends Users {
     public List<int[]> measures;
     @FXML
     public void initialize() {
-        OverviewChart.getData().clear();
-        OverviewChart.getData().add(drawData(measures.get(1)));
+     //   OverviewChart.getData().clear();
+        //   OverviewChart.getData().add(drawData(measures.get(1)));
     }
 
     public XYChart.Series<Number, Number> drawData(int[] data){
