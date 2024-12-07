@@ -28,27 +28,16 @@
                <Font size="21.0" />
             </font>
          </Label>
-         <VBox alignment="CENTER" prefHeight="496.0" prefWidth="200.0" spacing="10.0">
+         <VBox alignment="CENTER" prefHeight="496.0" prefWidth="200.0" spacing="20.0">
             <children>
-               <VBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
-                  <children>
-                     <Glyph fx:id="myDataIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
-                        <graphic>
-                           <MFXRadioButton fx:id="myDataButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#DataClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio">
-                              <toggleGroup>
-                                 <ToggleGroup fx:id="maintoggle" />
-                              </toggleGroup>
-                           </MFXRadioButton>
-                        </graphic>
-                     </Glyph>
-                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="My Data" textAlignment="CENTER" />
-                  </children>
-               </VBox>
                <VBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
                   <children>
                      <Glyph fx:id="MeasuresIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
                         <graphic>
-                           <MFXRadioButton fx:id="MeasuresButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#MeasuresClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
+                           <MFXRadioButton fx:id="MeasuresButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#MeasuresClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio">
+                              <toggleGroup>
+                                 <ToggleGroup fx:id="maintoggle" />
+                              </toggleGroup></MFXRadioButton>
                         </graphic>
                      </Glyph>
                      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Measures" textAlignment="CENTER" />
@@ -131,6 +120,11 @@
                   <Insets right="10.0" />
                </padding>
             </StackPane>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="429.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Roboto Light" size="16.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>
