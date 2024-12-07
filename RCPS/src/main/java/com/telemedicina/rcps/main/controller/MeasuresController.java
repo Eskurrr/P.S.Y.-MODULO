@@ -26,6 +26,8 @@ public class MeasuresController extends Users {
     public List<int[]> measures;
     @FXML
     public void initialize() {
+        char[] id = getIDMainUser();
+
      //   OverviewChart.getData().clear();
         //   OverviewChart.getData().add(drawData(measures.get(1)));
     }

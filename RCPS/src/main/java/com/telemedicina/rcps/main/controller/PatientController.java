@@ -24,7 +24,7 @@ public class PatientController {
     }
     @FXML
     private ListView<String> patientListView;
-
+/*
 
 @FXML
     public void initialize() {
@@ -40,7 +40,7 @@ public class PatientController {
                 setSelectedPatient(newValue); // Update the property
             }
         }
-    }
+    }*/
 }
 
 
