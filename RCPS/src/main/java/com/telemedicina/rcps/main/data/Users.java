@@ -134,5 +134,16 @@ public class Users {
         }
         return -1;
     }
+
+ /*   public List<Dispositivo> SearchPatientId(char[] id) {
+        String idSearch = Arrays.toString(id);
+        List<Dispositivo> measures = new ArrayList<>();
+        for (int i = 0; i < dispositivos.size(); i++) {
+            String idCompare = Arrays.toString(dispositivos.get(i).getIdPatient());
+            if (idCompare.equals(idSearch)) {
+                return i;
+            }
+        }
+    }*/
 }
 
