@@ -52,10 +52,6 @@ public class MainController extends Users {
     @FXML
     private Glyph MeasuresIcon;
     @FXML
-    private Glyph myDataIcon;
-    @FXML
-    private MFXRadioButton myDataButton;
-    @FXML
     private MenuItem ContactBt;
     @FXML
     private MenuItem MyInfoBt;
@@ -66,9 +62,9 @@ public class MainController extends Users {
     public void initialize() {
         SidePanelSetup();
         icons();
-        DevicesButton.setSelected(true);
+        MeasuresButton.setSelected(true);
         UserImage.setMouseTransparent(true);
-        loadView("DevicesScreen.fxml");
+        loadView("MeasuresScreen.fxml");
     }
     @FXML
     public void toggleMenu(ActionEvent actionEvent) {
@@ -109,7 +105,6 @@ public class MainController extends Users {
         IconSetup(PatientsIcon , USERS);
         IconSetup(DevicesIcon , HEARTBEAT);
         IconSetup(NursesIcon , USER_MD);
-        IconSetup(myDataIcon , USER);
         IconSetup(MeasuresIcon , LINE_CHART);
     }
     @Deprecated
@@ -133,15 +128,11 @@ public class MainController extends Users {
     public void MeasuresClicked(ActionEvent actionEvent) { loadView("MeasuresScreen.fxml");
     }
     @FXML
-    public void DataClicked(ActionEvent actionEvent) {
-    }
-
-    @FXML
     public void ContactClicked(ActionEvent actionEvent) {
     }
-
     @FXML
     public void MyInfoClicked(ActionEvent actionEvent) {
+        loadView("MyInfoScreen.fxml");
     }
 
     @FXML

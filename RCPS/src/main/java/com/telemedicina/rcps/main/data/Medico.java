@@ -17,6 +17,15 @@ public class Medico extends Usuario{
         String idP = "1111" + id;;
         super.setId(idP.toCharArray());
     }
+    public Medico(String ID) {
+        this.nombre = "";
+        this.edad = 0;
+        this.telefono = "";
+        this.setCorreo("");
+        super.setPassword("");
+        String idP = "1111" + ID;
+        super.setId(idP.toCharArray());
+    }
     public String getCorreo() {
         return correo;
     }

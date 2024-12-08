@@ -18,21 +18,27 @@ public class Users {
     public static Usuario getMainUser() {
         return MainUser;
     }
+
     public static void setMainUser(Usuario mainUser) {
         Users.MainUser = mainUser;
     }
+
     public static List<Dispositivo> getDispositivos() {
         return dispositivos;
     }
+
     public static void setDispositivos(List<Dispositivo> dispositivos) {
         Users.dispositivos = dispositivos;
     }
+
     public static List<Relation> getRelaciones() {
         return relaciones;
     }
+
     public static void setRelaciones(List<Relation> relaciones) {
         Users.relaciones = relaciones;
     }
+
     public static List<Paciente> getPacientes() {
         return pacientes;
     }
@@ -73,6 +79,7 @@ public class Users {
     public static void setIDMainUser(char[] IDMainUser) {
         Users.IDMainUser = IDMainUser;
     }
+
     public Usuario SearchUsuario(char[] id) {
         int i = SearchID(getLogIn(), id);
         if (i == -1) {
@@ -134,5 +141,66 @@ public class Users {
         }
         return -1;
     }
+
+    public List<Dispositivo> SearchPatientMeasures(char[] id) {
+        String idSearch = Arrays.toString(id);
+        List<Dispositivo> measures = new ArrayList<>();
+        for (int i = 0; i < dispositivos.size(); i++) {
+            String idCompare = Arrays.toString(dispositivos.get(i).getIdPatient());
+            if (idCompare.equals(idSearch)) {
+                measures.add(dispositivos.get(i));
+            }
+        }
+        return measures;
+    }
+
+    public List<Dispositivo> SearchOxygenMeasures(List<Dispositivo> measures) {
+        List<Dispositivo> oxygenMeasures = new ArrayList<>();
+        for (int i = 0; i < measures.size(); i++) {
+            if (measures.get(i).isOxygen()) {
+                oxygenMeasures.add(measures.get(i));
+            }
+        }
+        return oxygenMeasures;
+    }
+
+    public List<Dispositivo> SearchECGMeasures(List<Dispositivo> measures) {
+        List<Dispositivo> ECGMeasures = new ArrayList<>();
+        for (int i = 0; i < measures.size(); i++) {
+            if (!measures.get(i).isOxygen()) {
+                ECGMeasures.add(measures.get(i));
+            }
+        }
+        return ECGMeasures;
+    }
+    public List<Relation> SearchRelations(char[] id) {
+        String idSearch = Arrays.toString(id);
+        String type = idSearch.substring(0, 4);
+        List<Relation> UserRelations = new ArrayList<>();
+        for (int i = 0; i < relaciones.size(); i++) {
+            if(type.equals("1111")){
+                String idCompare = Arrays.toString(relaciones.get(i).getMaster());
+                if (idCompare.equals(idSearch)) {
+                    UserRelations.add(relaciones.get(i));
+                }
+            }else if(type.equals("2222")){
+                String idCompareS = Arrays.toString(relaciones.get(i).getSlave());
+                String idCompareM = Arrays.toString(relaciones.get(i).getMaster());
+                if (idCompareS.equals(idSearch) || idCompareM.equals(idSearch)) {
+                    UserRelations.add(relaciones.get(i));
+                }
+            }else if(type.equals("3333")){
+                String idCompare = Arrays.toString(relaciones.get(i).getSlave());
+                if (idCompare.equals(idSearch)) {
+                    UserRelations.add(relaciones.get(i));
+                }
+            }else {
+                System.out.println("ID no correcto");
+                return null;
+            }
+        }
+        return UserRelations;
+    }
+
 }
 
