@@ -36,9 +36,7 @@ public class RegisterPatientController extends Users{
         String password = password_text.getText();
         String cpassword = cpassword_text.getText();
         char[] typeID = getIDMainUser();
-        String fullID = Arrays.toString(typeID);
-        String code = fullID.substring(4, 8);
-        Paciente patient = (Paciente) getMainUser();
+        Paciente patient = SearchPaciente(typeID);
         boolean empty = false;
         if (email.isEmpty()){
             email_text.getStyleClass().add("warning");
@@ -66,7 +64,7 @@ public class RegisterPatientController extends Users{
             warning_label.setText("Successful registration!");
             patient.setCorreo(email);
             patient.setPassword(password);
-
+            getPacientes().set(SearchID(getPacientes(),typeID) , patient);
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
                 HelloApplication app = new HelloApplication();
