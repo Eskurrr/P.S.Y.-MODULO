@@ -22,7 +22,7 @@
                 <MFXTextField fx:id="password_text" floatMode="ABOVE" floatingText="Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
                 <MFXTextField fx:id="cpassword_text" floatMode="ABOVE" floatingText="Confirm Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
                 <Label fx:id="warning_label" prefHeight="17.0" prefWidth="217.0" />
-                <MFXButton fx:id="signup_click" onAction="#clickRegister" rippleColor="#dc05f8" style="-fx-background-color: #FF45FF22;" text="Sign Up" />
+                <MFXButton fx:id="signup_click" onAction="#clickRegister" rippleColor="#dc05f8" style="-fx-background-color: #66E0E0;" text="Sign Up" />
             </children>
         </VBox>
     </children>
