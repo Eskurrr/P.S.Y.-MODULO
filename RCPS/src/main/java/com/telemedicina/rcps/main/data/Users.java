@@ -22,7 +22,6 @@ public class Users {
     public static void setMainUser(Usuario mainUser) {
         Users.MainUser = mainUser;
     }
-
     public static List<Dispositivo> getDispositivos() {
         return dispositivos;
     }
