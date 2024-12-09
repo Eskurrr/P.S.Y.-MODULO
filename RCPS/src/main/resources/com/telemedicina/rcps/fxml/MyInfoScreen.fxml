@@ -36,7 +36,7 @@
             <CustomTextField fx:id="EmailField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
             <CustomTextField fx:id="PhoneField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
             <CustomTextField fx:id="AdressField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
-            <MFXButton fx:id="ChangesBt" onAction="#ChangesClicked" style="-fx-background-color: #FF45FF22; -fx-background-repeat: 7;" text="Save Changes">
+            <MFXButton fx:id="ChangesBt" onAction="#ChangesClicked" style="-fx-background-color: #FF45FF22;" text="Save Changes">
                <VBox.margin>
                   <Insets top="40.0" />
                </VBox.margin></MFXButton>

@@ -2,6 +2,7 @@ package com.telemedicina.rcps.main.controller;
 
 
 import com.telemedicina.rcps.main.data.Users;
+import com.telemedicina.rcps.main.data.Usuario;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -37,6 +38,8 @@ public class LoginController extends Users {
     private MFXButton bt_forgot;
     @FXML
     void clickLogin(ActionEvent event) throws IOException {
+        Usuario user = new Usuario("11112222" , "a");
+        getLogIn().add(user);
         txt_username.setStyle("");
         txt_password.setStyle("");
         bt_click.requestFocus();

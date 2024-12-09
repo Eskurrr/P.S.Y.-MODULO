@@ -18,6 +18,16 @@ public class Paciente extends Usuario{
         this.address = address;
         this.diagnostico = diagnostico;
     }
+    public Paciente(String nombre, int edad, String telefono, String address, String diagnostico ,String correo , char[] id , String password) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.address = address;
+        this.diagnostico = diagnostico;
+        this.correo = correo;
+        super.setId(id);
+        super.setPassword(password);
+    }
     public String getCorreo() {
         return correo;
     }
@@ -64,6 +74,4 @@ public class Paciente extends Usuario{
     public void setDiagnostico(String diagnostico) {
         this.diagnostico = diagnostico;
     }
-
-    //ID
 }
