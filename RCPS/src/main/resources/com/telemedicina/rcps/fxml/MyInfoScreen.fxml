@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MyInfoController">
    <columnConstraints>
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="239.0" minWidth="100.0" prefWidth="239.0" />
       <ColumnConstraints maxWidth="435.0" minWidth="301.0" prefWidth="301.0" />
@@ -27,36 +27,38 @@
                <font>
                   <Font size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
             </Label>
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <CustomTextField maxWidth="300.0" style="-fx-border-color: #66E0E0;" stylesheets="@../css/TextFields.css" />
-            <MFXButton style="-fx-background-color: #66E0E0; -fx-background-repeat: 7;" text="Save Changes" />
+
+            <CustomTextField fx:id="NameField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+            <CustomTextField fx:id="AgeField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+            <CustomTextField fx:id="EmailField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+            <CustomTextField fx:id="PhoneField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+            <CustomTextField fx:id="AdressField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
+            <MFXButton fx:id="ChangesBt" onAction="#ChangesClicked" style="-fx-background-color: #FF45FF22;" text="Save Changes">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin></MFXButton>
          </children>
       </VBox>
-      <VBox alignment="CENTER_RIGHT" maxHeight="9.9999999E7" maxWidth="9.99999999E8" minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="100.0" spacing="13.6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <VBox alignment="CENTER_RIGHT" maxHeight="9.9999999E7" maxWidth="9.99999999E8" minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="100.0" spacing="14.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <Text text="Name" />
-            <Text text="Sex" />
             <Text text="Age" />
-            <Text text="Email" />
-            <Text text="Diagnostic" />
+            <Text text="Email">
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin></Text>
             <Text text="Phone" />
             <Text text="Adress" />
-            <Text text="Nurse" />
-            <Text text="Device" />
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <padding>
-            <Insets bottom="42.0" right="3.0" top="45.0" />
+            <Insets bottom="42.0" right="3.0" top="40.0" />
          </padding>
       </VBox>
    </children>
