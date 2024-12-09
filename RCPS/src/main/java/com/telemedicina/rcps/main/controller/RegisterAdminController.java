@@ -3,15 +3,15 @@ package com.telemedicina.rcps.main.controller;
 import com.telemedicina.rcps.main.HelloApplication;
 import com.telemedicina.rcps.main.data.Enfermero;
 import com.telemedicina.rcps.main.data.Medico;
-import com.telemedicina.rcps.main.data.Paciente;
 import com.telemedicina.rcps.main.data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.SplitPane;
+
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -27,9 +27,9 @@ public class RegisterAdminController extends Users {
     @FXML
     private Label adminWarning;
     @FXML
-    private MFXTextField adminConfirmP;
+    private MFXPasswordField adminConfirmP;
     @FXML
-    private MFXTextField adminPassword;
+    private MFXPasswordField adminPassword;
     @FXML
     private MFXTextField adminMail;
     @FXML

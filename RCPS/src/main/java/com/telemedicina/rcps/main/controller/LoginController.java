@@ -47,7 +47,8 @@ public class LoginController extends Users {
         String username = txt_username.getText();
         String password = txt_password.getText();
         boolean empty = false;
-        if (username.isEmpty()){
+
+        if (username.length() != 8) {
             txt_username.getStyleClass().add("warning");
             empty = true;
         }
@@ -60,14 +61,35 @@ public class LoginController extends Users {
             txt_warning.setText("Enter your credentials");
             bt_forgot.setDisable(false);
             bt_forgot.setVisible(true);
-        } else {
-            txt_warning.setTextFill(Color.GREEN);
-            txt_warning.setText("Successful login: " + username);
-            PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
-            pause.setOnFinished(e -> {
-                changeWindow("/com/telemedicina/rcps/fxml/MainScreen.fxml");
-            });
-            pause.play();
+        }
+        else {
+            char[] id = username.toCharArray();
+            Usuario user = SearchUsuario(id);
+            if(user == null) {
+                txt_warning.setTextFill(Color.RED);
+                txt_username.getStyleClass().add("warning");
+                txt_warning.setText("This user does not exist");
+                bt_forgot.setDisable(false);
+                bt_forgot.setVisible(true);
+            } else {
+                if(!user.getPassword().equals(password)) {
+                    txt_warning.setTextFill(Color.RED);
+                    txt_password.getStyleClass().add("warning");
+                    txt_warning.setText("Your credentials are incorrect");
+                    bt_forgot.setDisable(false);
+                    bt_forgot.setVisible(true);
+                } else {
+                    txt_warning.setTextFill(Color.GREEN);
+                    txt_warning.setText("Successful login: " + username);
+                    setIDMainUser(id);
+                    PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
+                    pause.setOnFinished(e -> {
+                        changeWindow("/com/telemedicina/rcps/fxml/MainScreen.fxml");
+                    });
+                    pause.play();
+                }
+            }
+
 
         }
     }

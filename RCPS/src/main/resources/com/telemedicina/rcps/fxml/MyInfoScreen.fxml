@@ -23,7 +23,7 @@
    <children>
       <VBox alignment="CENTER" maxHeight="9.999999999E9" maxWidth="9.9999999E7" minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label prefHeight="27.0" prefWidth="135.0" style="-fx-background-color: #FF45FF22; -fx-background-radius: 9; -fx-background-size: 0;" stylesheets="@../css/Common.css" text=" My information ">
+            <Label prefHeight="27.0" prefWidth="135.0" style="-fx-background-color: #66E0E0; -fx-background-radius: 9; -fx-background-size: 0;" stylesheets="@../css/Common.css" text=" My information ">
                <font>
                   <Font size="18.0" />
                </font>
@@ -31,6 +31,7 @@
                   <Insets bottom="40.0" />
                </VBox.margin>
             </Label>
+
             <CustomTextField fx:id="NameField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
             <CustomTextField fx:id="AgeField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
             <CustomTextField fx:id="EmailField" maxWidth="300.0" style="-fx-border-color: pink;" stylesheets="@../css/TextFields.css" />
