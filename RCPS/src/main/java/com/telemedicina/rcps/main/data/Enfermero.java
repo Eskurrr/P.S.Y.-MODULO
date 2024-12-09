@@ -27,6 +27,16 @@ public class Enfermero extends Usuario {
         String idP = "2222" + ID;
         super.setId(idP.toCharArray());
     }
+
+    public Enfermero(String name, int age, String phone, String email, char[] id, String password) {
+        this.nombre = name;
+        this.edad = age;
+        this.telefono = phone;
+        this.correo = email;
+        super.setPassword(password);
+        super.setId(id);
+    }
+
     public String getCorreo() {
         return correo;
     }

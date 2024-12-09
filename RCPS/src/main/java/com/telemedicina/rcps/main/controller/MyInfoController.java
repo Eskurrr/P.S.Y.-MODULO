@@ -58,10 +58,21 @@ public class MyInfoController extends Users {
     public void ChangesClicked(ActionEvent actionEvent) {
         Usuario userM = getMainUser();
         String name = NameField.getText();
-        String age = AgeField.getText();
+        int age = Integer.parseInt(AgeField.getText());
         String address = AdressField.getText();
         String email = EmailField.getText();
         String phone = PhoneField.getText();
-        
+        if (userM != null) {
+            if(userM instanceof Paciente){
+                Paciente user = (Paciente) userM;
+                getPacientes().set(SearchID(getPacientes(),userM.getId()), new Paciente (name,age,phone,address,user.getDiagnostico(),email,user.getId(),user.getPassword()));
+            }else if(userM instanceof Enfermero){
+                Enfermero user = (Enfermero) userM;
+                getEnfermeros().set(SearchID(getEnfermeros(),user.getId()), new Enfermero (name,age,phone,email,user.getId(),user.getPassword()));
+            }else if(userM instanceof Medico){
+                Medico user = (Medico) userM;
+                getMedicos().set(SearchID(getMedicos(),user.getId()), new Medico (name,age,phone,email,user.getId(),user.getPassword()));
+            }
+        }
     }
 }
