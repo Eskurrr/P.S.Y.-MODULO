@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.RegisterPatientController">
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.RegisterPatientController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="365.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="235.0" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -18,12 +22,19 @@
     <children>
         <VBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="566.0" spacing="25.0" style="-fx-background-color: WHITE;">
             <children>
-                <MFXTextField fx:id="email_text" floatMode="ABOVE" floatingText="Email" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
-                <MFXTextField fx:id="password_text" floatMode="ABOVE" floatingText="Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
-                <MFXTextField fx:id="cpassword_text" floatMode="ABOVE" floatingText="Confirm Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" style="-fx-border-color: pink;" />
-                <Label fx:id="warning_label" prefHeight="17.0" prefWidth="217.0" />
+                <MFXTextField fx:id="email_text" floatMode="ABOVE" floatingText="Email" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" />
+                <MFXPasswordField fx:id="password_text" floatMode="ABOVE" floatingText="Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" />
+                <MFXPasswordField fx:id="cpassword_text" floatMode="ABOVE" floatingText="Confirm Password" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" prefHeight="25.0" prefWidth="160.0" />
+                <Label fx:id="warning_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="201.0" />
                 <MFXButton fx:id="signup_click" onAction="#clickRegister" rippleColor="#dc05f8" style="-fx-background-color: #66E0E0;" text="Sign Up" />
             </children>
         </VBox>
+      <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+         <children>
+            <ImageView fitHeight="184.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+                 <Image url="@../images/RCPS-IM.png" />
+             </ImageView>
+         </children>
+      </VBox>
     </children>
 </GridPane>

@@ -3,14 +3,17 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.RegisterIDController">
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.RegisterIDController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -20,9 +23,16 @@
             <children>
                 <Label prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #66E0E0; -fx-background-radius: 9;" text=" Enter your Type ID to continue with registration" />
                 <MFXTextField fx:id="TypeIDText" maxHeight="40.0" maxWidth="160.0" minHeight="20.0" minWidth="0.0" onKeyPressed="#ID_Clicked" prefHeight="25.0" prefWidth="160.0" />
-                <Label fx:id="typeID_empty" />
+                <Label fx:id="typeID_empty" alignment="CENTER" contentDisplay="CENTER" />
                 <MFXButton fx:id="continue_click" onAction="#clickContinue" rippleColor="#dc05f8" style="-fx-background-color: #66E0E0;" text="Continue" />
             </children>
         </VBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+         <children>
+            <ImageView fx:id="logo_id" fitHeight="252.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+              <Image url="@../images/RCPS-IM.png" />
+            </ImageView>
+         </children>
+      </VBox>
     </children>
 </GridPane>

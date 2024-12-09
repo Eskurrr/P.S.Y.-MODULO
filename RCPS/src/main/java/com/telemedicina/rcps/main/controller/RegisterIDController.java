@@ -33,17 +33,22 @@ public class RegisterIDController extends Users {
         TypeIDText.setStyle("");
         continue_click.requestFocus();
         String typeID = TypeIDText.getText();
-        String type = typeID.substring(0, 4);
+        String type = "";
+        if(typeID.length() ==8) {
+             type = typeID.substring(0, 4);
+        } else {
+            empty = true;
+        }
+
         char[] id = new char[8];
         if (typeID.length()==8) {
             id = typeID.toCharArray();
         }   else {
             TypeIDText.getStyleClass().add("warning");
             typeID_empty.setTextFill(Color.RED);
-            typeID_empty.setText("Your Type ID must be 8 digits");
             empty = true;
         }
-            if (type.equals("3333")) {
+            if (type.equals("3333") && !empty) {
                 setIDMainUser(id);
                 typeID_empty.setTextFill(Color.GREEN);
                typeID_empty.setText("Welcome to RCPS");
@@ -54,7 +59,7 @@ public class RegisterIDController extends Users {
             });
             pause.play();
 
-        } else if (type.equals("1111") || type.equals("2222")){
+        } else if (type.equals("1111")  && !empty|| type.equals("2222") && !empty) {
                 setIDMainUser(id);
                 typeID_empty.setTextFill(Color.GREEN);
                 typeID_empty.setText("Welcome to RCPS");
