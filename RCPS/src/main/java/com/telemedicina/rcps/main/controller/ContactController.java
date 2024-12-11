@@ -7,81 +7,20 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
-import javafx.scene.Node;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import org.controlsfx.glyphfont.Glyph;
-
 import java.util.Objects;
-
-import static org.controlsfx.glyphfont.FontAwesome.Glyph.USER_MD;
-
-public class DevicesController {
-
+public class ContactController {
     @FXML
-    public GridPane DevicesPane;
+    GridPane DevicePane;
     @FXML
-    public void initialize() {
-        findFreeSpace(addDevice("44440001" , "Pablo" , "Sawai"));
-    }
-    @FXML
-    public void findFreeSpace(MFXButton button) {
-        int rowIndex = 0;
-        boolean placed = false;
-        while (rowIndex < DevicesPane.getRowCount() && !placed) {
-            boolean Empty = isCellEmpty(0 , rowIndex);
-            RowConstraints row = new RowConstraints();
-            row.setPrefHeight(277);
-            row.setMinHeight(10);
-            DevicesPane.getRowConstraints().set(rowIndex,row);
-            if (!Empty) {
-                for (int colIndex = 0; colIndex < DevicesPane.getColumnCount(); colIndex++) {
-                    if (isCellEmpty(colIndex , rowIndex)) {
-                        String btName = "DV" + colIndex + "" + rowIndex;
-                        button.setId(btName);
-                        DevicesPane.add(button , colIndex, rowIndex);
-                        placed = true;
-                        break;
-                    }
-                }
-            }
-            rowIndex++;
-        }
-        if (!placed) {
-            String btName = "DV" + "0" + "" + rowIndex;
-            button.setId(btName);
-            int index = addRow();
-            DevicesPane.add(button , 0, index);
-        }
-    }
-    @FXML
-    public boolean isCellEmpty(int col, int row) {
-              int index = (row * DevicesPane.getColumnCount()) + col + 1 ;
-        try {
-            DevicesPane.getChildren().get(index);
-            return false;
-        } catch (IndexOutOfBoundsException e) {
-            return true;
-        }
-    }
-    @FXML
-    public int addRow() {
-        DevicesPane.addRow(DevicesPane.getRowCount());
-        RowConstraints row = new RowConstraints();
-        row.setPrefHeight(277);
-        row.setMinHeight(10);
-        DevicesPane.getRowConstraints().set(DevicesPane.getRowCount() - 1,row);
-        return DevicesPane.getRowCount() - 1;
-    }
-    @FXML
-    public MFXButton addDevice(String Dname , String UName , String NName) {
+    public MFXButton addDevice( String id , String Dname , String UName , String NName) {
         // Step 2.1: Initialize the button
         MFXButton button = new MFXButton();
         button.setAlignment(Pos.CENTER);
@@ -90,9 +29,11 @@ public class DevicesController {
         button.setPrefSize(379, 260);
         button.setStyle("-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;");
         button.getStyleClass().add("mfx-button");
-
+        button.setId(id);
+// Step 3.1: Initialize the GridPane
         GridPane gridPane = new GridPane();
 
+// Step 3.2: Configure column constraints
         ColumnConstraints col1 = new ColumnConstraints();
         col1.setHgrow(Priority.SOMETIMES);
         col1.setPrefWidth(111.33);
@@ -106,6 +47,8 @@ public class DevicesController {
         col3.setPrefWidth(117.99);
 
         gridPane.getColumnConstraints().addAll(col1, col2, col3);
+
+// Step 3.3: Configure row constraints
         RowConstraints row1 = new RowConstraints();
         row1.setPrefHeight(81);
 
@@ -116,6 +59,7 @@ public class DevicesController {
         row3.setPrefHeight(58.66);
 
         gridPane.getRowConstraints().addAll(row1, row2, row3);
+// Step 4.1: Add labels
         Label DLabel = new Label("DEVICE:");
         GridPane.setHalignment(DLabel, HPos.RIGHT);
         GridPane.setMargin(DLabel, new Insets(0, 20, 0, 0));
@@ -149,6 +93,8 @@ public class DevicesController {
         GridPane.setColumnIndex(userPhoto, 1);
         GridPane.setRowIndex(userPhoto, 1);
         GridPane.setHalignment(userPhoto, HPos.CENTER);
+// Step 4.3: Add FontAwesome Glyphs
+// Create the first Glyph for DeviceIcon
         Glyph deviceIcon = new Glyph("FontAwesome", "HEARTBEAT"); // Use the FontAwesome icon name
         deviceIcon.setFontSize(30); // Font size
         deviceIcon.setAlignment(Pos.CENTER); // Center alignment
@@ -156,6 +102,8 @@ public class DevicesController {
         GridPane.setColumnIndex(deviceIcon, 2); // Place in column 2
         GridPane.setHalignment(deviceIcon, HPos.CENTER);
         GridPane.setMargin(deviceIcon, new Insets(0, 20, 0, 0)); // Right margin
+
+// Create the second Glyph for NurseIcon
         Glyph nurseIcon = new Glyph("FontAwesome", "STETHOSCOPE"); // Use the FontAwesome icon name
         nurseIcon.setFontSize(30); // Font size
         nurseIcon.setAlignment(Pos.CENTER); // Center alignment
@@ -164,10 +112,11 @@ public class DevicesController {
         GridPane.setColumnIndex(nurseIcon, 1); // Place in column 1
         GridPane.setRowIndex(nurseIcon, 2); // Place in row 2
         GridPane.setHalignment(nurseIcon, HPos.CENTER); // Align horizontally to the right
+
+// Step 4.4: Add all children to the gridPane
         gridPane.getChildren().addAll(DLabel, DName, UserName, NurseLabel, NurseName, userPhoto,deviceIcon, nurseIcon);
         button.setGraphic(gridPane);
         return button;
     }
-
 
 }

@@ -3,6 +3,7 @@ package com.telemedicina.rcps.main.controller;
 
 
 import com.telemedicina.rcps.main.data.Users;
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,6 +46,10 @@ public class MainController extends Users {
     public MFXRadioButton NursesButton;
     @FXML
     public ImageView UserImage;
+    @FXML
+    public MFXButton AddButton;
+    @FXML
+    public Glyph AddIcon;
     @FXML
     private MFXRadioButton MeasuresButton;
     @FXML
@@ -104,8 +109,10 @@ public class MainController extends Users {
         IconSetup(menuIcon , BARS);
         IconSetup(PatientsIcon , USERS);
         IconSetup(DevicesIcon , HEARTBEAT);
-        IconSetup(NursesIcon , USER_MD);
+        IconSetup(NursesIcon , MEDKIT);
         IconSetup(MeasuresIcon , LINE_CHART);
+        AddIcon.setIcon(PENCIL);
+        AddIcon.setOnMouseClicked(MouseEvent -> AddButton.fire());
     }
     @Deprecated
     public void IconSetup (Glyph icon , FontAwesome.Glyph glph){
@@ -128,7 +135,7 @@ public class MainController extends Users {
     public void MeasuresClicked(ActionEvent actionEvent) { loadView("MeasuresScreen.fxml");
     }
     @FXML
-    public void ContactClicked(ActionEvent actionEvent) {
+    public void ContactClicked(ActionEvent actionEvent) { loadView("ContactScreen.fxml");
     }
     @FXML
     public void MyInfoClicked(ActionEvent actionEvent) {
@@ -137,5 +144,8 @@ public class MainController extends Users {
 
     @FXML
     public void MenuClicked(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void AddClicked(ActionEvent actionEvent) {
     }
 }
