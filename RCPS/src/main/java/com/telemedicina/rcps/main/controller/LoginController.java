@@ -38,8 +38,9 @@ public class LoginController extends Users {
     private MFXButton bt_forgot;
     @FXML
     void clickLogin(ActionEvent event) throws IOException {
-        Usuario userFF = new Usuario("11112222" , "a");
-        getLogIn().add(userFF);
+
+        Usuario userTry = new Usuario("11112345" , "a");
+        getLogIn().add(userTry);
         txt_username.setStyle("");
         txt_password.setStyle("");
         bt_click.requestFocus();

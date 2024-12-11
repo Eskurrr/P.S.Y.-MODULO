@@ -17,7 +17,7 @@
     <children>
         <MFXScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" prefHeight="581.0" prefWidth="846.0" stylesheets="@../css/MFXScrollPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <content>
-                <GridPane alignment="CENTER" focusTraversable="false" hgap="20.0" prefHeight="894.0" prefWidth="843.0" stylesheets="@../css/GridPane.css" vgap="20.0">
+                <GridPane fx:id="DevicesPane" alignment="CENTER" focusTraversable="false" hgap="20.0" prefHeight="894.0" prefWidth="843.0" stylesheets="@../css/GridPane.css" vgap="20.0">
                     <!-- Disable horizontal growth and let the columns stay at their preferred width -->
                     <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -33,13 +33,6 @@
 
                     <!-- Add buttons to the grid -->
                     <children>
-                        <MFXButton fx:id="DV3" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin></MFXButton>
-                        <MFXButton fx:id="DV4" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <MFXButton fx:id="DV5" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <MFXButton fx:id="DV6" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <MFXButton fx:id="DV1" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="31.0" layoutY="331.0" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <graphic>
                         <GridPane fx:id="DV1_Pane">
@@ -54,31 +47,36 @@
                             <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="58.66668701171875" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label fx:id="device" prefHeight="17.0" prefWidth="89.0" text="DEVICE:" />
-                              <Label fx:id="DeviceName" alignment="CENTER" graphicTextGap="0.0" prefHeight="57.0" prefWidth="152.0" text="DeviceName" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <Label fx:id="device" prefHeight="17.0" prefWidth="48.0" text="DEVICE:" GridPane.halignment="RIGHT">
+                                 <GridPane.margin>
+                                    <Insets right="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label fx:id="DeviceName" alignment="CENTER" graphicTextGap="0.0" prefHeight="50.0" prefWidth="150.0" text="DeviceName" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="userFoto" fitHeight="114.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <ImageView fx:id="userFoto" fitHeight="79.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                  <image>
-                                    <Image url="@../images/ROUND-RCPS.png" />
+                                    <Image url="@../images/ROUND-LOGO.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="userName" prefHeight="47.0" prefWidth="143.0" text="Usuario" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <Label fx:id="userName" prefHeight="31.0" prefWidth="89.0" text="Usuario" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Glyph alignment="CENTER" fontFamily="FontAwesome" fontSize="16.0" prefHeight="43.0" prefWidth="68.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
-                              <Label text="Assigned:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Glyph alignment="CENTER" fontFamily="FontAwesome" fontSize="20.0" prefHeight="53.0" prefWidth="68.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                                 <GridPane.margin>
+                                    <Insets right="20.0" />
+                                 </GridPane.margin></Glyph>
+                              <Label text="Attendant:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                               <Label prefHeight="30.0" prefWidth="77.0" text="Enfermero" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <Glyph prefHeight="17.0" prefWidth="61.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Glyph fx:id="NurseIcon" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="52.0" prefWidth="52.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                      </graphic>
                   </MFXButton>
-                  <MFXButton fx:id="DV2" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="453.0" layoutY="331.0" prefHeight="260.0" prefWidth="379.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-background-color: #BBA0FF88;" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                     </children>
                 </GridPane>
             </content>
