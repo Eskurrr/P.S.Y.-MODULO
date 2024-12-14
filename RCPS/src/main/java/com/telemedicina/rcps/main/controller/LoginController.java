@@ -38,6 +38,7 @@ public class LoginController extends Users {
     @FXML
     void clickLogin(ActionEvent event) throws IOException {
         AdminUserCreate();
+
         txt_username.setStyle("");
         txt_password.setStyle("");
         bt_click.requestFocus();

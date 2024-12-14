@@ -63,6 +63,9 @@ public class MyInfoController extends Users {
     public void ChangesClicked(ActionEvent actionEvent) {
         userM = getMainUser();
         String name = NameField.getText();
+        if(AgeField.getText().isEmpty()){
+            AgeField.setText("0");
+        }
         int age = Integer.parseInt(AgeField.getText());
         String address = AdressField.getText();
         String email = EmailField.getText();
