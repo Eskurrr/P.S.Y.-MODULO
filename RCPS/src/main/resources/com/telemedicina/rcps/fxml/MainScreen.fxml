@@ -18,6 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.glyphfont.Glyph?>
 
+<?import javafx.scene.control.RadioMenuItem?>
 <AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MainController">
    <children>
       <VBox fx:id="sidePanel" alignment="TOP_CENTER" cache="true" focusTraversable="true" prefHeight="600.0" prefWidth="160.0" spacing="20.0" style="-fx-background-color: #7FDAD699;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -104,8 +105,8 @@
                <children>
                   <MenuButton fx:id="MenuBt" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#MenuClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 80; -fx-border-radius: 80;" StackPane.alignment="CENTER_RIGHT">
                     <items>
-                      <MenuItem fx:id="MyInfoBt" mnemonicParsing="false" onAction="#MyInfoClicked" text="My Info" />
-                      <MenuItem fx:id="ContactBt" mnemonicParsing="false" onAction="#ContactClicked" text="Contact Us" />
+                      <RadioMenuItem fx:id="MyInfoBt" toggleGroup="$maintoggle" mnemonicParsing="false" onAction="#MyInfoClicked" text="My Info" />
+                      <RadioMenuItem fx:id="ContactBt" toggleGroup="$maintoggle" mnemonicParsing="false" onAction="#ContactClicked" text="Contact Us" />
                     </items>
                      <StackPane.margin>
                         <Insets right="4.0" />
@@ -121,7 +122,7 @@
                   <Insets right="10.0" />
                </padding>
             </StackPane>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="429.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Label fx:id="NAME_LBL" alignment="CENTER" prefHeight="17.0" prefWidth="429.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font name="Roboto Light" size="16.0" />
                </font>

@@ -2,12 +2,16 @@ package com.telemedicina.rcps.main.controller;
 
 
 
+import com.telemedicina.rcps.main.data.Enfermero;
+import com.telemedicina.rcps.main.data.Medico;
+import com.telemedicina.rcps.main.data.Paciente;
 import com.telemedicina.rcps.main.data.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleGroup;
@@ -20,6 +24,8 @@ import static org.controlsfx.glyphfont.FontAwesome.Glyph.*;
 
 
 public class MainController extends Users {
+    @FXML
+    public Label NAME_LBL;
     @FXML
     public VBox sidePanel;
     @FXML
@@ -67,9 +73,31 @@ public class MainController extends Users {
     public void initialize() {
         SidePanelSetup();
         icons();
+        NameDisplay();
         MeasuresButton.setSelected(true);
         UserImage.setMouseTransparent(true);
         loadView("MeasuresScreen.fxml");
+    }
+
+    @FXML
+    public void NameDisplay(){
+        String type = SearchType(getIDMainUser());
+        String welcome = "";
+        String name = "";
+            if(type.equals("Medico")){
+            Medico m = SearchMedico(getIDMainUser());
+            name = m.getNombre();
+            welcome = "Welcome Doctor " + name;
+        }else if(type.equals("Enfermero")){
+            Enfermero e = SearchEnfermero(getIDMainUser());
+            name = e.getNombre();
+            welcome = "Welcome Nurse " + name;
+        }else if(type.equals("Paciente")) {
+            Paciente p = SearchPaciente(getIDMainUser());
+            name = p.getNombre();
+            welcome = "Welcome " + name;
+        }
+        NAME_LBL.setText(welcome);
     }
     @FXML
     public void toggleMenu(ActionEvent actionEvent) {
@@ -122,7 +150,7 @@ public class MainController extends Users {
     }
     @FXML
     public void PatientsClicked(ActionEvent actionEvent) {
-        loadView("AddPatientScreen.fxml");
+        loadView("PatientScreen.fxml");
     }
     @FXML
     public void NursesClicked(ActionEvent actionEvent) {
@@ -147,5 +175,7 @@ public class MainController extends Users {
     }
     @FXML
     public void AddClicked(ActionEvent actionEvent) {
+        loadView("AddPatientScreen.fxml");
+        maintoggle.selectToggle(null);
     }
 }

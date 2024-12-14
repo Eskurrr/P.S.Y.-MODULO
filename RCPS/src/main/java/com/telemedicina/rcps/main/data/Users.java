@@ -78,7 +78,28 @@ public class Users {
     public static void setIDMainUser(char[] IDMainUser) {
         Users.IDMainUser = IDMainUser;
     }
-
+    public void addToAll(Usuario u){
+        if(u instanceof Medico){
+            getMedicos().add((Medico) u);
+        }else if(u instanceof Enfermero){
+            getEnfermeros().add((Enfermero) u);
+        }else if(u instanceof Paciente){
+            getPacientes().add((Paciente) u);
+        }
+        getLogIn().add(new Usuario(String.valueOf(u.getId()),u.getPassword()));
+    }
+    public String SearchType(char[] id){
+        String ID = String.valueOf(id);
+        String type = ID.substring(0,4);
+        if(type.equals("1111")){
+            return "Medico";
+        }else if(type.equals("2222")){
+            return "Enfermero";
+        }else if(type.equals("3333")){
+            return "Paciente";
+        }
+        return null;
+    }
     public Usuario SearchUsuario(char[] id) {
         int i = SearchID(getLogIn(), id);
         if (i == -1) {

@@ -1,8 +1,7 @@
 package com.telemedicina.rcps.main.controller;
 
 
-import com.telemedicina.rcps.main.data.Users;
-import com.telemedicina.rcps.main.data.Usuario;
+import com.telemedicina.rcps.main.data.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -38,8 +37,7 @@ public class LoginController extends Users {
     private MFXButton bt_forgot;
     @FXML
     void clickLogin(ActionEvent event) throws IOException {
-        Usuario userTry = new Usuario("11112345" , "a");
-        getLogIn().add(userTry);
+        AdminUserCreate();
         txt_username.setStyle("");
         txt_password.setStyle("");
         bt_click.requestFocus();
@@ -47,7 +45,6 @@ public class LoginController extends Users {
         String username = txt_username.getText();
         String password = txt_password.getText();
         boolean empty = false;
-
         if (username.length() != 8) {
             txt_username.getStyleClass().add("warning");
             empty = true;
@@ -64,6 +61,7 @@ public class LoginController extends Users {
         }
         else {
             char[] id = username.toCharArray();
+            String type = SearchType(id);
             Usuario user = SearchUsuario(id);
             if(user == null) {
                 txt_warning.setTextFill(Color.RED);
@@ -82,6 +80,16 @@ public class LoginController extends Users {
                     txt_warning.setTextFill(Color.GREEN);
                     txt_warning.setText("Successful login: " + username);
                     setIDMainUser(id);
+                    if(type.equals("Medico")){
+                        Medico m = SearchMedico(id);
+                        setMainUser(m);
+                    }else if(type.equals("Enfermero")){
+                        Enfermero e = SearchEnfermero(id);
+                        setMainUser(e);
+                    }else if (type.equals("Paciente")){
+                        Paciente p = SearchPaciente(id);
+                        setMainUser(p);
+                    }
                     PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
                     pause.setOnFinished(e -> {
                         changeWindow("/com/telemedicina/rcps/fxml/MainScreen.fxml");
@@ -111,6 +119,12 @@ public class LoginController extends Users {
         if(event.getCode().equals(KeyCode.ENTER)){
             txt_password.requestFocus();
         }
+    }
+
+    public void AdminUserCreate(){
+        String IDm = "11112345";
+        Medico medico = new Medico("Pablo Escudero",20 , "676772328" , "juegosescu@gmail.com" , IDm.toCharArray() ,  "a" );
+        addToAll(medico);
     }
     public void changeWindow(String fxml) {
         try {

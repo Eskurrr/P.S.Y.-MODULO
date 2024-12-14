@@ -34,24 +34,19 @@ public class RegisterIDController extends Users {
         continue_click.requestFocus();
         String typeID = TypeIDText.getText();
         String type = "";
-        if(typeID.length() ==8) {
-             type = typeID.substring(0, 4);
-        } else {
-            empty = true;
-        }
-
         char[] id = new char[8];
         if (typeID.length()==8) {
             id = typeID.toCharArray();
+            type = SearchType(id);
         }   else {
             TypeIDText.getStyleClass().add("warning");
             typeID_empty.setTextFill(Color.RED);
             empty = true;
         }
-            if (type.equals("3333") && !empty) {
+        if (type.equals("Paciente") && !empty) {
                 setIDMainUser(id);
                 typeID_empty.setTextFill(Color.GREEN);
-               typeID_empty.setText("Welcome to RCPS");
+                typeID_empty.setText("Welcome to RCPS");
 
             PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
             pause.setOnFinished(e -> {
@@ -59,7 +54,7 @@ public class RegisterIDController extends Users {
             });
             pause.play();
 
-        } else if (type.equals("1111")  && !empty|| type.equals("2222") && !empty) {
+        } else if (type.equals("Medico")  && !empty|| type.equals("Enfermero") && !empty) {
                 setIDMainUser(id);
                 typeID_empty.setTextFill(Color.GREEN);
                 typeID_empty.setText("Welcome to RCPS");
