@@ -1,13 +1,17 @@
 package com.telemedicina.rcps.main.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.telemedicina.rcps.main.data.Users;
+import com.telemedicina.rcps.main.data.Usuario;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.layout.Pane;
 
-public class PatientController {
+import java.io.IOException;
+
+public class PatientListController extends Users {
 
     private final StringProperty selectedPatient = new SimpleStringProperty();
 
@@ -24,6 +28,19 @@ public class PatientController {
     }
     @FXML
     private ListView<String> patientListView;
+
+    public void DisplayUser(Usuario User){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/telemedicina/rcps/fxml/UserDisplayScreen.fxml"));
+            Pane view = loader.load();
+            UserDisplayController display = loader.getController();
+            display.setUserDisplayed(User);
+            //mainContent.getChildren().clear();
+            //mainContent.getChildren().add(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 /*
 
 @FXML

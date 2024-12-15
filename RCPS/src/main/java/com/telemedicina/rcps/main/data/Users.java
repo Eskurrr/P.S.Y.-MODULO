@@ -85,8 +85,17 @@ public class Users {
             getEnfermeros().add((Enfermero) u);
         }else if(u instanceof Paciente){
             getPacientes().add((Paciente) u);
+        }else if(u instanceof Dispositivo){
+            getDispositivos().add((Dispositivo) u);
         }
-        getLogIn().add(new Usuario(String.valueOf(u.getId()),u.getPassword()));
+        if(!(u instanceof Dispositivo)){
+            getLogIn().add(new Usuario(String.valueOf(u.getId()),u.getPassword()));
+        }
+    }
+
+    public void AssignDevice(char[] device , char[] patient){
+        Relation assign = new Relation(patient , device);
+        relaciones.add(assign);
     }
     public String SearchType(char[] id){
         String ID = String.valueOf(id);
@@ -97,6 +106,8 @@ public class Users {
             return "Enfermero";
         }else if(type.equals("3333")){
             return "Paciente";
+        }else if(type.equals("4444")){
+            return "Dispositivo";
         }
         return null;
     }
@@ -140,16 +151,33 @@ public class Users {
         }
     }
 
-    public Dispositivo SearchDispositivo(char[] id) {
-        int i = SearchID(getDispositivos(), id);
-        if (i == -1) {
-            System.out.println("Dispositivo no encontrado");
-            return null;
+    public List<Dispositivo> SearchDispositivo(char[] id) {
+        int j = SearchID(getDispositivos(), id);
+        List<Dispositivo> measures = new ArrayList<>();
+        if (j == -1) {
+            System.out.println("Dispositivo sin medidas");
         } else {
-            return getDispositivos().get(i);
+            String idSearch = Arrays.toString(id);
+            for(int i = 0; i < dispositivos.size(); i++) {
+                String idCompare = Arrays.toString(dispositivos.get(i).getId());
+                if (idCompare.equals(idSearch)) {
+                    measures.add(dispositivos.get(i));
+                }
+            }
         }
+        return measures;
     }
-
+    public List<Dispositivo> FilterDispositivo(List<Dispositivo> measures , char[] id) {
+        List<Dispositivo> measuresFiltered = new ArrayList<>();
+        String idSearch = Arrays.toString(id);
+        for(int i = 0; i < measures.size(); i++) {
+            String idCompare = Arrays.toString(measures.get(i).getIdPatient());
+            if (idCompare.equals(idSearch)) {
+                measures.add(dispositivos.get(i));
+            }
+        }
+        return measuresFiltered;
+    }
     public int SearchID(List<? extends Usuario> list, char[] id) {
         String idSearch = Arrays.toString(id);
 
@@ -195,31 +223,30 @@ public class Users {
     }
     public List<Relation> SearchRelations(char[] id) {
         String idSearch = Arrays.toString(id);
-        String type = idSearch.substring(0, 4);
         List<Relation> UserRelations = new ArrayList<>();
         for (int i = 0; i < relaciones.size(); i++) {
-            if(type.equals("1111")){
-                String idCompare = Arrays.toString(relaciones.get(i).getMaster());
-                if (idCompare.equals(idSearch)) {
-                    UserRelations.add(relaciones.get(i));
-                }
-            }else if(type.equals("2222")){
                 String idCompareS = Arrays.toString(relaciones.get(i).getSlave());
                 String idCompareM = Arrays.toString(relaciones.get(i).getMaster());
                 if (idCompareS.equals(idSearch) || idCompareM.equals(idSearch)) {
                     UserRelations.add(relaciones.get(i));
                 }
-            }else if(type.equals("3333")){
-                String idCompare = Arrays.toString(relaciones.get(i).getSlave());
-                if (idCompare.equals(idSearch)) {
-                    UserRelations.add(relaciones.get(i));
-                }
-            }else {
-                System.out.println("ID no correcto");
-                return null;
-            }
+        }
+        if (UserRelations.isEmpty()) {
+            System.out.println("Id no encontrado");
         }
         return UserRelations;
+    }
+
+    public Relation SearchDeviceAssigned(char[] id) {
+        String idSearch = Arrays.toString(id);
+        for (int i = 0; i < relaciones.size(); i++) {
+            String CompareM = Arrays.toString(relaciones.get(i).getMaster());
+            String tipo = SearchType(relaciones.get(i).getSlave());
+            if (CompareM.equals(idSearch) && tipo.equals("Dispositivo")) {
+                return relaciones.get(i);
+            }
+        }
+        return null;
     }
 
 }

@@ -8,7 +8,8 @@ public class Dispositivo extends Usuario{
     private String date;
     private boolean Oxygen;
     private int[] medida;
-    public Dispositivo(String id, String idPatient, boolean Oxy ,String date, int[] medida) {
+    private int battery;
+    public Dispositivo(String id, String idPatient, boolean Oxy ,String date, int[] medida , int battery) {
         String idP = "4444" + id;
         super.setId(idP.toCharArray());
         this.idPatient = idPatient.toCharArray();
@@ -16,6 +17,7 @@ public class Dispositivo extends Usuario{
         this.date = date;
         this.medida = medida;
         super.setPassword("");
+        this.battery = battery;
     }
 
     public boolean isOxygen() {
@@ -48,5 +50,13 @@ public class Dispositivo extends Usuario{
 
     public void setMedida(int[] medida) {
         this.medida = medida;
+    }
+
+    public int getBattery() {
+        return battery;
+    }
+
+    public void setBattery(int battery) {
+        this.battery = battery;
     }
 }

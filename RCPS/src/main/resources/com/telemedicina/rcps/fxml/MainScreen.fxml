@@ -5,7 +5,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,7 +18,6 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.glyphfont.Glyph?>
 
-<?import javafx.scene.control.RadioMenuItem?>
 <AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MainController">
    <children>
       <VBox fx:id="sidePanel" alignment="TOP_CENTER" cache="true" focusTraversable="true" prefHeight="600.0" prefWidth="160.0" spacing="20.0" style="-fx-background-color: #7FDAD699;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -42,7 +41,7 @@
                               </toggleGroup></MFXRadioButton>
                         </graphic>
                      </Glyph>
-                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Measures" textAlignment="CENTER" />
+                     <Label fx:id="MeasuresLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Measures" textAlignment="CENTER" />
                   </children>
                </VBox>
                <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="168.0" prefHeight="85.0" prefWidth="200.0">
@@ -52,27 +51,27 @@
                            <MFXRadioButton fx:id="DevicesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#DevicesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
                         </graphic>
                      </Glyph>
-                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Devices" textAlignment="CENTER" />
+                     <Label fx:id="DevicesLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Devices" textAlignment="CENTER" />
                   </children>
                </VBox>
-               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="215.0" prefHeight="85.0" prefWidth="200.0">
+               <VBox fx:id="PatientsBox" alignment="TOP_CENTER" layoutX="10.0" layoutY="215.0" prefHeight="85.0" prefWidth="200.0">
                   <children>
                      <Glyph fx:id="PatientsIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
                         <graphic>
                            <MFXRadioButton fx:id="PatientsButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#PatientsClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
                         </graphic>
                      </Glyph>
-                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Patients" textAlignment="CENTER" />
+                     <Label fx:id="PatientsLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Patients" textAlignment="CENTER" />
                   </children>
                </VBox>
-               <VBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
+               <VBox fx:id="NursesBox" alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
                   <children>
                      <Glyph fx:id="NursesIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
                         <graphic>
                            <MFXRadioButton fx:id="NursesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#NursesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
                         </graphic>
                      </Glyph>
-                     <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Nurses" textAlignment="CENTER" />
+                     <Label fx:id="NursesLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Nurses" textAlignment="CENTER" />
                   </children>
                </VBox>
             </children>
@@ -105,8 +104,8 @@
                <children>
                   <MenuButton fx:id="MenuBt" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#MenuClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 80; -fx-border-radius: 80;" StackPane.alignment="CENTER_RIGHT">
                     <items>
-                      <RadioMenuItem fx:id="MyInfoBt" toggleGroup="$maintoggle" mnemonicParsing="false" onAction="#MyInfoClicked" text="My Info" />
-                      <RadioMenuItem fx:id="ContactBt" toggleGroup="$maintoggle" mnemonicParsing="false" onAction="#ContactClicked" text="Contact Us" />
+                      <RadioMenuItem fx:id="MyInfoBt" mnemonicParsing="false" onAction="#MyInfoClicked" text="My Info" toggleGroup="$maintoggle" />
+                      <RadioMenuItem fx:id="ContactBt" mnemonicParsing="false" onAction="#ContactClicked" text="Contact Us" toggleGroup="$maintoggle" />
                     </items>
                      <StackPane.margin>
                         <Insets right="4.0" />

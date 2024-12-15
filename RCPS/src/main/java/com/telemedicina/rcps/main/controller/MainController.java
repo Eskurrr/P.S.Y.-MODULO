@@ -2,10 +2,7 @@ package com.telemedicina.rcps.main.controller;
 
 
 
-import com.telemedicina.rcps.main.data.Enfermero;
-import com.telemedicina.rcps.main.data.Medico;
-import com.telemedicina.rcps.main.data.Paciente;
-import com.telemedicina.rcps.main.data.Users;
+import com.telemedicina.rcps.main.data.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import javafx.event.ActionEvent;
@@ -57,6 +54,18 @@ public class MainController extends Users {
     @FXML
     public Glyph AddIcon;
     @FXML
+    public Label MeasuresLBL;
+    @FXML
+    public Label DevicesLBL;
+    @FXML
+    public VBox PatientsBox;
+    @FXML
+    public Label PatientsLBL;
+    @FXML
+    public VBox NursesBox;
+    @FXML
+    public Label NursesLBL;
+    @FXML
     private MFXRadioButton MeasuresButton;
     @FXML
     private Glyph NursesIcon;
@@ -72,13 +81,27 @@ public class MainController extends Users {
     @FXML
     public void initialize() {
         SidePanelSetup();
+        ViewPermissions();
         icons();
         NameDisplay();
         MeasuresButton.setSelected(true);
         UserImage.setMouseTransparent(true);
         loadView("MeasuresScreen.fxml");
     }
-
+    @FXML
+    public void ViewPermissions(){
+        Usuario user = getMainUser();
+        if(user instanceof Paciente){
+            AddButton.setDisable(true);
+            AddButton.setVisible(false);
+            NursesLBL.setText("My Nurses");
+            PatientsLBL.setText("My Doctors");
+            MeasuresLBL.setText("My Measures");
+            DevicesLBL.setText("My Device");
+        }else if(user instanceof Enfermero){
+            NursesLBL.setText("Admin");
+        }
+    }
     @FXML
     public void NameDisplay(){
         String type = SearchType(getIDMainUser());
@@ -150,7 +173,7 @@ public class MainController extends Users {
     }
     @FXML
     public void PatientsClicked(ActionEvent actionEvent) {
-        loadView("PatientScreen.fxml");
+        loadView("PatientListScreen.fxml");
     }
     @FXML
     public void NursesClicked(ActionEvent actionEvent) {

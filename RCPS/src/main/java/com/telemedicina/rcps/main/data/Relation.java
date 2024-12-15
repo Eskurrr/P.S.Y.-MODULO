@@ -4,6 +4,10 @@ public class Relation {
     private char[] master = new char[8] ;
     private char[] slave = new char[8] ;
 
+    public Relation(char[] master , char[] slave){
+        this.master = master ;
+        this.slave = slave;
+    }
     public char[] getMaster() {
         return master;
     }
