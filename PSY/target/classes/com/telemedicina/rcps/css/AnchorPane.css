@@ -1,0 +1,9 @@
+
+@import 'Common.css';
+@import 'MFXColors.css';
+
+.anchor-pane:focused {
+    -fx-border-color: transparent; /* Remove the border */
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+}

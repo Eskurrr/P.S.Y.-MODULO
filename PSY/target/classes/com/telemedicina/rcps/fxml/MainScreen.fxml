@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.glyphfont.Glyph?>
+
+<AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.modulo.psy.main.controller.MainController">
+   <children>
+      <VBox fx:id="sidePanel" alignment="TOP_CENTER" cache="true" focusTraversable="true" prefHeight="600.0" prefWidth="160.0" spacing="20.0" style="-fx-background-color: #7FDAD699;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets top="30.0" />
+         </padding>
+         <Label alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="15.0" prefHeight="36.0" prefWidth="115.0" styleClass="header" text="Menu" textAlignment="CENTER">
+            <font>
+               <Font size="21.0" />
+            </font>
+         </Label>
+         <VBox alignment="CENTER" prefHeight="496.0" prefWidth="200.0" spacing="20.0">
+            <children>
+               <VBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
+                  <children>
+                     <Glyph fx:id="MeasuresIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                        <graphic>
+                           <MFXRadioButton fx:id="MeasuresButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#MeasuresClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio">
+                              <toggleGroup>
+                                 <ToggleGroup fx:id="maintoggle" />
+                              </toggleGroup></MFXRadioButton>
+                        </graphic>
+                     </Glyph>
+                     <Label fx:id="MeasuresLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Measures" textAlignment="CENTER" />
+                  </children>
+               </VBox>
+               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="168.0" prefHeight="85.0" prefWidth="200.0">
+                  <children>
+                     <Glyph fx:id="DevicesIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                        <graphic>
+                           <MFXRadioButton fx:id="DevicesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#DevicesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
+                        </graphic>
+                     </Glyph>
+                     <Label fx:id="DevicesLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Devices" textAlignment="CENTER" />
+                  </children>
+               </VBox>
+               <VBox fx:id="PatientsBox" alignment="TOP_CENTER" layoutX="10.0" layoutY="215.0" prefHeight="85.0" prefWidth="200.0">
+                  <children>
+                     <Glyph fx:id="PatientsIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                        <graphic>
+                           <MFXRadioButton fx:id="PatientsButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#PatientsClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
+                        </graphic>
+                     </Glyph>
+                     <Label fx:id="PatientsLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Patients" textAlignment="CENTER" />
+                  </children>
+               </VBox>
+               <VBox fx:id="NursesBox" alignment="TOP_CENTER" prefHeight="85.0" prefWidth="200.0">
+                  <children>
+                     <Glyph fx:id="NursesIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="24.0" graphicTextGap="0.0" prefHeight="61.0" prefWidth="111.0" style="-fx-cursor: HAND;" viewOrder="1.0">
+                        <graphic>
+                           <MFXRadioButton fx:id="NursesButton" contentDisplay="BOTTOM" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#NursesClicked" prefHeight="60.0" prefWidth="111.0" radioGap="0.0" radius="26.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio" toggleGroup="$maintoggle" />
+                        </graphic>
+                     </Glyph>
+                     <Label fx:id="NursesLBL" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="136.0" text="Nurses" textAlignment="CENTER" />
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <StackPane fx:id="mainContent" layoutX="160.0" layoutY="60.0" prefHeight="528.0" prefWidth="732.0" stylesheets="@../css/StackPane.css" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="8.0" />
+      <GridPane fx:id="mainMenu" layoutX="168.0" prefHeight="60.0" prefWidth="732.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.6666259765625" minWidth="10.0" prefWidth="40.00001525878906" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="447.99998474121094" minWidth="10.0" prefWidth="447.99998474121094" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Glyph fx:id="menuIcon" alignment="TOP_CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="20.0" graphicTextGap="0.0" prefHeight="45.0" prefWidth="57.0" style="-fx-cursor: HAND;" viewOrder="1.0" GridPane.rowIndex="1">
+               <graphic>
+                  <MFXRadioButton fx:id="bt_menu" alignment="TOP_CENTER" cache="true" contentDisplay="CENTER" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" onAction="#toggleMenu" prefHeight="58.0" prefWidth="69.0" radioGap="0.0" radius="22.0" selected="true" stylesheets="@../css/MFXRadioButton.css" text="Radio" textFill="TRANSPARENT" />
+               </graphic>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Glyph>
+            <StackPane alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <MenuButton fx:id="MenuBt" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#MenuClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 80; -fx-border-radius: 80;" StackPane.alignment="CENTER_RIGHT">
+                    <items>
+                      <RadioMenuItem fx:id="MyInfoBt" mnemonicParsing="false" onAction="#MyInfoClicked" text="My Info" toggleGroup="$maintoggle" />
+                      <RadioMenuItem fx:id="ContactBt" mnemonicParsing="false" onAction="#ContactClicked" text="Contact Us" toggleGroup="$maintoggle" />
+                    </items>
+                     <StackPane.margin>
+                        <Insets right="4.0" />
+                     </StackPane.margin>
+                  </MenuButton>
+                  <ImageView fx:id="UserImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ROUND-LOGO.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </StackPane>
+            <Label fx:id="NAME_LBL" alignment="CENTER" prefHeight="17.0" prefWidth="429.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Roboto Light" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <MFXButton fx:id="AddButton" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="845.0" layoutY="575.0" onAction="#AddClicked" prefHeight="56.0" prefWidth="60.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #BBA0FF88;" styleClass="mfx-button" stylesheets="@../css/MFXButton.css" textFill="TRANSPARENT" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <graphic>
+            <Glyph fx:id="AddIcon" alignment="CENTER" fontFamily="FontAwesome" fontSize="30.0" prefHeight="33.0" prefWidth="44.0" style="-fx-cursor: HAND;" />
+         </graphic></MFXButton>
+   </children>
+</AnchorPane>
