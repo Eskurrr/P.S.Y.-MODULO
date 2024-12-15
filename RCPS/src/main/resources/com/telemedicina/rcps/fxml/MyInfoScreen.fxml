@@ -52,7 +52,7 @@
                   <Insets top="6.0" />
                </VBox.margin></Text>
             <Text text="Phone" />
-            <Text text="Adress" />
+            <Text fx:id="AdressLBL" text="Adress" />
          </children>
          <opaqueInsets>
             <Insets />

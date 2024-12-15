@@ -1,8 +1,7 @@
 package com.telemedicina.rcps.main.controller;
 
 
-import com.telemedicina.rcps.main.data.Users;
-import com.telemedicina.rcps.main.data.Usuario;
+import com.telemedicina.rcps.main.data.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -38,9 +37,7 @@ public class LoginController extends Users {
     private MFXButton bt_forgot;
     @FXML
     void clickLogin(ActionEvent event) throws IOException {
-
-        Usuario userTry = new Usuario("11112345" , "a");
-        getLogIn().add(userTry);
+        AdminUsersCreate();
         txt_username.setStyle("");
         txt_password.setStyle("");
         bt_click.requestFocus();
@@ -48,7 +45,6 @@ public class LoginController extends Users {
         String username = txt_username.getText();
         String password = txt_password.getText();
         boolean empty = false;
-
         if (username.length() != 8) {
             txt_username.getStyleClass().add("warning");
             empty = true;
@@ -65,6 +61,7 @@ public class LoginController extends Users {
         }
         else {
             char[] id = username.toCharArray();
+            String type = SearchType(id);
             Usuario user = SearchUsuario(id);
             if(user == null) {
                 txt_warning.setTextFill(Color.RED);
@@ -83,6 +80,16 @@ public class LoginController extends Users {
                     txt_warning.setTextFill(Color.GREEN);
                     txt_warning.setText("Successful login: " + username);
                     setIDMainUser(id);
+                    if(type.equals("Medico")){
+                        Medico m = SearchMedico(id);
+                        setMainUser(m);
+                    }else if(type.equals("Enfermero")){
+                        Enfermero e = SearchEnfermero(id);
+                        setMainUser(e);
+                    }else if (type.equals("Paciente")){
+                        Paciente p = SearchPaciente(id);
+                        setMainUser(p);
+                    }
                     PauseTransition pause = new PauseTransition(Duration.seconds(0.4));
                     pause.setOnFinished(e -> {
                         changeWindow("/com/telemedicina/rcps/fxml/MainScreen.fxml");
@@ -112,6 +119,29 @@ public class LoginController extends Users {
         if(event.getCode().equals(KeyCode.ENTER)){
             txt_password.requestFocus();
         }
+    }
+    public void AdminUsersCreate(){
+        String ID = "2345";
+        String IDm = "1111" + ID;
+        Medico medico = new Medico("Pablo Escudero",20 , "676772328" , "juegosescu@gmail.com" , IDm.toCharArray() ,  "a" );
+        addToAll(medico);
+        String IDe = "2222" + ID;
+        Enfermero enfermero = new Enfermero("Sawai Davila", 19 , "647040857" , "sawaidavila@gmail.com" , IDe.toCharArray() ,  "a" );
+        addToAll(enfermero);
+        String IDp = "3333" + ID;
+        Paciente paciente = new Paciente("Carolina Beatrice" , 22 , "650114244" , "Calle Caribe 2 , 11A" , "arritmia" , "carolina@gmail.com" , IDp.toCharArray() ,  "a" );
+        addToAll(paciente);
+        int[] measure = {515, 520, 510, 525, 518, 512, 530, 510, 525, 518, 512, 510, 520, 525, 530, 535, 532, 518, 512, 510,
+                515, 520, 525, 518, 512, 510, 530, 525, 520, 518, 510, 510, 520, 525, 530, 535, 532, 518, 512, 510,
+                510, 520, 525, 518, 512, 510, 530, 525, 520, 518, 510, 510, 520, 525, 530, 535, 532, 518, 512, 510,
+                515, 520, 525, 518, 512, 510, 530, 525, 520, 518, 510, 510, 520, 525, 530, 535, 532, 518, 512, 510};
+        String IDd = "4444" + ID;
+        Dispositivo device = new Dispositivo(IDd, "33332345" , false, "22/12/2024" , measure , 40);
+        addToAll(device);
+        AssignDevice(IDd.toCharArray(), IDp.toCharArray());
+        getRelaciones().add(new Relation(IDm.toCharArray(),IDe.toCharArray()));
+        getRelaciones().add(new Relation(IDm.toCharArray(),IDp.toCharArray()));
+        getRelaciones().add(new Relation(IDe.toCharArray(),IDp.toCharArray()));
     }
     public void changeWindow(String fxml) {
         try {

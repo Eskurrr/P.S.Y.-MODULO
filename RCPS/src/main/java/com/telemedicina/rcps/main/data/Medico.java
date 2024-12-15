@@ -12,16 +12,16 @@ public class Medico extends Usuario{
         this.nombre = nombre;
         this.edad = edad;
         this.telefono = telefono;
-        this.setCorreo("");
+        this.correo = "";
         super.setPassword("");
-        String idP = "1111" + id;;
+        String idP = "1111" + id;
         super.setId(idP.toCharArray());
     }
     public Medico(String ID) {
         this.nombre = "";
         this.edad = 0;
         this.telefono = "";
-        this.setCorreo("");
+        this.correo = "";
         super.setPassword("");
         String idP = "1111" + ID;
         super.setId(idP.toCharArray());
@@ -35,7 +35,6 @@ public class Medico extends Usuario{
         super.setPassword(password);
         super.setId(id);
     }
-
     public String getCorreo() {
         return correo;
     }

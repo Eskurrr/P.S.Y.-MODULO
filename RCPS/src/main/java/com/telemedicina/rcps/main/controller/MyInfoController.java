@@ -2,6 +2,7 @@ package com.telemedicina.rcps.main.controller;
 
 import com.telemedicina.rcps.main.data.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.mfxcore.controls.Text;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import org.controlsfx.control.textfield.CustomTextField;
@@ -9,6 +10,8 @@ import org.controlsfx.control.textfield.CustomTextField;
 public class MyInfoController extends Users {
     @FXML
     public MFXButton ChangesBt;
+    @FXML
+    public Text AdressLBL;
     @FXML
     private CustomTextField AdressField;
     @FXML
@@ -19,10 +22,10 @@ public class MyInfoController extends Users {
     private CustomTextField EmailField;
     @FXML
     private CustomTextField PhoneField;
-
+    protected Usuario userM;
     @FXML
     public void initialize() {
-        Usuario userM = getMainUser();
+        userM = getMainUser();
         if (userM != null) {
             if(userM instanceof Paciente){
                 Paciente user = (Paciente) userM;
@@ -38,6 +41,7 @@ public class MyInfoController extends Users {
                 EmailField.setText(user.getCorreo());
                 PhoneField.setText(user.getTelefono());
                 AdressField.setVisible(false);
+                AdressLBL.setVisible(false);
             }else if(userM instanceof Medico){
                 Medico user = (Medico) userM;
                 NameField.setText(user.getNombre());
@@ -45,18 +49,19 @@ public class MyInfoController extends Users {
                 EmailField.setText(user.getCorreo());
                 PhoneField.setText(user.getTelefono());
                 AdressField.setVisible(false);
+                AdressLBL.setVisible(false);
             }
         }else{
-            NameField.setText("");
-            AgeField.setText("");
-            EmailField.setText("");
-            PhoneField.setText("");
-            AdressField.setText("");
+            NameField.setText("null");
+            AgeField.setText("null");
+            EmailField.setText("null");
+            PhoneField.setText("null");
+            AdressField.setText("null");
         }
     }
     @FXML
     public void ChangesClicked(ActionEvent actionEvent) {
-        Usuario userM = getMainUser();
+        userM = getMainUser();
         String name = NameField.getText();
         if(AgeField.getText().isEmpty()){
             AgeField.setText("0");
@@ -67,14 +72,17 @@ public class MyInfoController extends Users {
         String phone = PhoneField.getText();
         if (userM != null) {
             if(userM instanceof Paciente){
-                Paciente user = (Paciente) userM;
-                getPacientes().set(SearchID(getPacientes(),userM.getId()), new Paciente (name,age,phone,address,user.getDiagnostico(),email,user.getId(),user.getPassword()));
+                Paciente userP = (Paciente) userM;
+                getPacientes().set(SearchID(getPacientes(),userM.getId()), new Paciente (name,age,phone,address,userP.getDiagnostico(),email,userM.getId(),userM.getPassword()));
+                setMainUser(userP);
             }else if(userM instanceof Enfermero){
-                Enfermero user = (Enfermero) userM;
-                getEnfermeros().set(SearchID(getEnfermeros(),user.getId()), new Enfermero (name,age,phone,email,user.getId(),user.getPassword()));
+                Enfermero userE = (Enfermero) userM;
+                getEnfermeros().set(SearchID(getEnfermeros(),userM.getId()), new Enfermero (name,age,phone,email,userM.getId(),userM.getPassword()));
+                setMainUser(userE);
             }else if(userM instanceof Medico){
-                Medico user = (Medico) userM;
-                getMedicos().set(SearchID(getMedicos(),user.getId()), new Medico (name,age,phone,email,user.getId(),user.getPassword()));
+                Medico userMe = (Medico) userM;
+                getMedicos().set(SearchID(getMedicos(),userM.getId()), new Medico (name,age,phone,email,userM.getId(),userM.getPassword()));
+                setMainUser(userMe);
             }
         }
     }
