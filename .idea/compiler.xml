@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="RCPS" />
+        <module name="PSY" />
       </profile>
     </annotationProcessing>
   </component>
