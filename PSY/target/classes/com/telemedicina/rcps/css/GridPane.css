@@ -1,7 +1,0 @@
-@import 'Common.css';
-@import 'MFXColors.css';
-
-.grid-pane:focused {
-    -fx-border-color: transparent; /* No border on focus */
-    -fx-border-width: 0;
-}
