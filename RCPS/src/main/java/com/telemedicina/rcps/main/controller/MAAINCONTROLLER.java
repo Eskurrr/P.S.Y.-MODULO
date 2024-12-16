@@ -12,6 +12,6 @@ public class MAAINCONTROLLER {
         client.start();
     }
     public void Draw(){
-        List<Integer> measures = client.getData();
+        List<Float> measures = client.getData();
     }
 }

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionClient extends Thread {
-    protected List<Integer> Data = new ArrayList<Integer>();
-    public List<Integer> getData() {
+    protected List<Float> Data = new ArrayList<Float>();
+    public List<Float> getData() {
         return Data;
     }
-    public void setData(List<Integer> data) {
+    public void setData(List<Float> data) {
         Data = data;
     }
     protected boolean Stop = false;
@@ -55,8 +55,8 @@ public class ConnectionClient extends Thread {
             socket.setSoTimeout(5000);
             while (true) {
                 try {
-                    int recieved = In.readInt();
-                    getData().add(recieved);
+                    float received = In.readFloat();
+                    getData().add(received);
                     Out.writeBoolean(isStop());
                 } catch (SocketTimeoutException e) {
                     System.out.println("Connection lost or server is not responding.");
