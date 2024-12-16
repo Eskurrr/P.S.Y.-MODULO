@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" style="-fx-background-color: #facaed;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MeasurementsController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="521.0" minHeight="10.0" prefHeight="521.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="295.0" minHeight="10.0" prefHeight="139.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label prefHeight="38.0" prefWidth="206.0" style="-fx-background-color: #ff03bb; -fx-background-radius: 22;" text="  Your measurements" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="20.0" />
+               </font>
+            </Label>
+            <LineChart fx:id="loneChart" prefHeight="298.0" prefWidth="335.0" stylesheets="@../css/LineChart.css">
+              <xAxis>
+                <CategoryAxis fx:id="lineX" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="lineY" side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+         <children>
+            <MFXComboBox fx:id="buttonClick" editable="false" floatingText="Select a different measurement" onAction="#changeChart" prefHeight="40.0" prefWidth="293.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </MFXComboBox>
+         </children>
+      </VBox>
+   </children>
+</GridPane>

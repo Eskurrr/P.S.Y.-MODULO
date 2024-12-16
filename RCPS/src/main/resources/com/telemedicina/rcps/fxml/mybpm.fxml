@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" style="-fx-background-color: #facaed;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MyBPMController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="525.0" minWidth="10.0" prefWidth="250.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="85.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="600.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="335.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox alignment="TOP_RIGHT" prefHeight="274.0" prefWidth="141.0" GridPane.columnIndex="1">
+         <padding>
+            <Insets right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="239.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Heart-icon.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets left="55.0" />
+         </padding>
+      </VBox>
+      <Label fx:id="bpm" text="100" textOverrun="CLIP">
+         <font>
+            <Font name="Berlin Sans FB" size="32.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="40.0" left="152.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="bpm" textOverrun="CLIP">
+         <font>
+            <Font name="Berlin Sans FB" size="22.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="155.0" />
+         </GridPane.margin>
+      </Label>
+   </children>
+</GridPane>
