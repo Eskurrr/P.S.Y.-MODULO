@@ -1,154 +1,46 @@
 package com.telemedicina.rcps.main.controller;
 
-
-
-import com.telemedicina.rcps.main.data.*;
+import com.telemedicina.rcps.main.Connection.ConnectionClient;
 import io.github.palexdev.materialfx.controls.MFXButton;
-import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import org.controlsfx.glyphfont.FontAwesome;
-import org.controlsfx.glyphfont.Glyph;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+
 import java.io.IOException;
-import static org.controlsfx.glyphfont.FontAwesome.Glyph.*;
 
-
-public class MainController extends Users {
-    @FXML
-    public Label NAME_LBL;
-    @FXML
-    public VBox sidePanel;
+public class MainController {
     @FXML
     public StackPane mainContent;
+    @FXML
+    public MFXButton myBPM;
+    @FXML
+    public MFXButton myMeasures;
     @FXML
     public AnchorPane screen;
     @FXML
     public GridPane mainMenu;
-    @FXML
-    public MFXRadioButton bt_menu;
-    @FXML
-    public Glyph menuIcon;
-    @FXML
-    public Glyph DevicesIcon;
-    @FXML
-    public MFXRadioButton DevicesButton;
-    @FXML
-    public Glyph PatientsIcon;
-    @FXML
-    public MFXRadioButton PatientsButton;
-    @FXML
-    public ToggleGroup maintoggle;
-    @FXML
-    public MFXRadioButton NursesButton;
-    @FXML
-    public ImageView UserImage;
-    @FXML
-    public MFXButton AddButton;
-    @FXML
-    public Glyph AddIcon;
-    @FXML
-    public Label MeasuresLBL;
-    @FXML
-    public Label DevicesLBL;
-    @FXML
-    public VBox PatientsBox;
-    @FXML
-    public Label PatientsLBL;
-    @FXML
-    public VBox NursesBox;
-    @FXML
-    public Label NursesLBL;
-    @FXML
-    private MFXRadioButton MeasuresButton;
-    @FXML
-    private Glyph NursesIcon;
-    @FXML
-    private Glyph MeasuresIcon;
-    @FXML
-    private MenuItem ContactBt;
-    @FXML
-    private MenuItem MyInfoBt;
-    @FXML
-    private MenuButton MenuBt;
-
-    @FXML
-    public void initialize() {
-        SidePanelSetup();
-        ViewPermissions();
-        icons();
-        NameDisplay();
-        MeasuresButton.setSelected(true);
-        UserImage.setMouseTransparent(true);
-        loadView("MeasuresScreen.fxml");
+    protected ConnectionClient client;
+    public ConnectionClient getClient() {
+        return client;
+    }
+    public void setClient(ConnectionClient client) {
+        this.client = client;
+    }
+    public void Start(){
+        client = new ConnectionClient("192.168.1.100" , 12345);
+        client.start();
     }
     @FXML
-    public void ViewPermissions(){
-        Usuario user = getMainUser();
-        if(user instanceof Paciente){
-            AddButton.setDisable(true);
-            AddButton.setVisible(false);
-            NursesLBL.setText("My Nurses");
-            PatientsLBL.setText("My Doctors");
-            MeasuresLBL.setText("My Measures");
-            DevicesLBL.setText("My Device");
-        }else if(user instanceof Enfermero){
-            NursesLBL.setText("Admin");
-        }
-    }
-    @FXML
-    public void NameDisplay(){
-        String type = SearchType(getIDMainUser());
-        String welcome = "";
-        String name = "";
-            if(type.equals("Medico")){
-            Medico m = SearchMedico(getIDMainUser());
-            name = m.getNombre();
-            welcome = "Welcome Doctor " + name;
-        }else if(type.equals("Enfermero")){
-            Enfermero e = SearchEnfermero(getIDMainUser());
-            name = e.getNombre();
-            welcome = "Welcome Nurse " + name;
-        }else if(type.equals("Paciente")) {
-            Paciente p = SearchPaciente(getIDMainUser());
-            name = p.getNombre();
-            welcome = "Welcome " + name;
-        }
-        NAME_LBL.setText(welcome);
-    }
-    @FXML
-    public void toggleMenu(ActionEvent actionEvent) {
-        if (!bt_menu.isSelected()) {
-            sidePanel.setPrefWidth(0); // Collapse the side panel
-            sidePanel.setVisible(false);
-            System.out.println("WIDTH:" + mainContent.getWidth());
-            System.out.println("HEIGHT:" + mainContent.getHeight());
-        }else {
-            sidePanel.setPrefWidth(160); // Expand the side panel
-            sidePanel.setVisible(true);
-            System.out.println("WIDTH:" + mainContent.getWidth());
-            System.out.println("HEIGHT:" + mainContent.getHeight());
-    }
-    }
-    @FXML
-    public void SidePanelSetup (){
-        mainMenu.setPrefHeight(60);
-        sidePanel.setPrefWidth(160);
-        sidePanel.setMinWidth(0);
-        mainContent.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
-        mainMenu.prefWidthProperty().bind(screen.widthProperty().subtract(sidePanel.widthProperty()));
-        mainContent.prefHeightProperty().bind(screen.heightProperty().subtract(mainMenu.heightProperty()));
-    }
-    private void loadView(String fxmlFile) {
+    private void loadViewBPM() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/telemedicina/rcps/fxml/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/telemedicina/rcps/fxml/BPMScreen.fxml"));
             Pane view = loader.load();
+            BPMController control = loader.getController();
+            control.setClient(getClient());
             mainContent.getChildren().clear();
             mainContent.getChildren().add(view);
         } catch (IOException e) {
@@ -156,49 +48,31 @@ public class MainController extends Users {
         }
     }
     @FXML
-    public void icons(){
-        IconSetup(menuIcon , BARS);
-        IconSetup(PatientsIcon , USERS);
-        IconSetup(DevicesIcon , HEARTBEAT);
-        IconSetup(NursesIcon , MEDKIT);
-        IconSetup(MeasuresIcon , LINE_CHART);
-        AddIcon.setIcon(PENCIL);
-        AddIcon.setOnMouseClicked(MouseEvent -> AddButton.fire());
-    }
-    @Deprecated
-    public void IconSetup (Glyph icon , FontAwesome.Glyph glph){
-        icon.setIcon(glph);
-        MFXRadioButton Rbt = (MFXRadioButton) icon.getGraphic();
-        icon.setOnMouseClicked(MouseEvent -> Rbt.fire());
+    private void loadViewMeasures() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/telemedicina/rcps/fxml/MeasuresScreen.fxml"));
+            Pane view = loader.load();
+            MeasuresController control = loader.getController();
+            control.setClient(getClient());
+            mainContent.getChildren().clear();
+            mainContent.getChildren().add(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    public void PatientsClicked(ActionEvent actionEvent) {
-        loadView("PatientListScreen.fxml");
+    public void initialize() {
+        mainContent.prefHeightProperty().bind(screen.heightProperty().subtract(mainMenu.heightProperty()));
+        Start();
+        loadViewBPM();
     }
     @FXML
-    public void NursesClicked(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void DevicesClicked(ActionEvent actionEvent) {
-        loadView("DevicesScreen.fxml");
-    }
-    @FXML
-    public void MeasuresClicked(ActionEvent actionEvent) { loadView("MeasuresScreen.fxml");
-    }
-    @FXML
-    public void ContactClicked(ActionEvent actionEvent) { loadView("ContactScreen.fxml");
-    }
-    @FXML
-    public void MyInfoClicked(ActionEvent actionEvent) {
-        loadView("MyInfoScreen.fxml");
+    public void myMeasuresClicked(ActionEvent actionEvent) {
+        loadViewMeasures();
     }
 
     @FXML
-    public void MenuClicked(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void AddClicked(ActionEvent actionEvent) {
-        loadView("AddPatientScreen.fxml");
-        maintoggle.selectToggle(null);
+    public void myBPMClicked(ActionEvent actionEvent) {
+        loadViewBPM();
     }
 }

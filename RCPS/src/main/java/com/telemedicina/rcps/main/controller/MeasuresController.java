@@ -1,53 +1,48 @@
 package com.telemedicina.rcps.main.controller;
 
-import com.telemedicina.rcps.main.data.Dispositivo;
-import com.telemedicina.rcps.main.data.Users;
-import io.github.palexdev.materialfx.controls.MFXButton;
+import com.telemedicina.rcps.main.Connection.ConnectionClient;
+import io.github.palexdev.materialfx.controls.MFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 
 import java.util.List;
 
-public class MeasuresController extends Users {
+public class MeasuresController {
     @FXML
-    public MFXButton OverviewBT;
+    public NumberAxis Yax;
     @FXML
-    public LineChart<Number, Number> OverviewChart;
+    public CategoryAxis Xax;
     @FXML
-    public MFXButton HeartRateBT;
+    public LineChart<Number, Number> Chart;
     @FXML
-    public LineChart<Number, Number> HeartRateChart;
+    public MenuButton menu;
     @FXML
-    public MFXButton OxygenBT;
+    public MenuItem option1;
     @FXML
-    public LineChart<Number, Number> OxygenChart;
-    public List<int[]> measures;
+    public MenuItem option2;
+    private final XYChart.Series<Number, Number> series = new XYChart.Series<>();
+    protected ConnectionClient client;
+    public ConnectionClient getClient() {
+        return client;
+    }
+    public void setClient(ConnectionClient client) {
+        this.client = client;
+    }
     @FXML
     public void initialize() {
-        char[] id = getIDMainUser();
-        List<Dispositivo> MedidasP = SearchPatientMeasures(id);
-
-     //   OverviewChart.getData().clear();
-        //   OverviewChart.getData().add(drawData(measures.get(1)));
+        Chart();
     }
-
-    public XYChart.Series<Number, Number> drawData(int[] data){
-        XYChart.Series<Number, Number> series = new XYChart.Series<>();
-        for (int i = 0; i < data.length; i++) {
-            series.getData().add(new XYChart.Data<>(i, data[i]));
+    @FXML
+    public void Chart(){
+        List<Float> data = client.getData();
+        for (int i = 0; i < data.size(); i++) {
+            series.getData().add(new XYChart.Data<>(i, data.get(i)));
         }
-        return series;
-    }
-
-    @FXML
-    public void OverviewClicked(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void HeartRateClicked(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void OxygenClicked(ActionEvent actionEvent) {
     }
 }
