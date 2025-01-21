@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" style="-fx-background-color: #facaed;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.BPMController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.BPMController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="525.0" minWidth="10.0" prefWidth="250.0" />
   </columnConstraints>
@@ -51,12 +51,12 @@
             </Label>
          </children>
       </GridPane>
-      <LineChart fx:id="ECG" alternativeRowFillVisible="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" stylesheets="@../css/LineChart.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.rowIndex="1">
+      <LineChart fx:id="ECG" alternativeRowFillVisible="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="571.0" prefWidth="335.0" stylesheets="@../css/LineChart.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <xAxis>
-          <CategoryAxis fx:id="Xaxis" side="BOTTOM" />
+          <CategoryAxis fx:id="Xaxis" endMargin="0.0" gapStartAndEnd="false" side="BOTTOM" startMargin="0.0" tickLabelGap="0.0" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="Yaxis" lowerBound="-2.0" side="LEFT" tickLabelGap="1.0" tickLength="10.0" tickUnit="2.0" upperBound="2.0" />
+          <NumberAxis fx:id="Yaxis" autoRanging="false" lowerBound="40.0" prefHeight="240.0" prefWidth="0.0" side="LEFT" tickLabelGap="0.0" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" tickUnit="2.0" upperBound="140.0" />
         </yAxis>
       </LineChart>
    </children>

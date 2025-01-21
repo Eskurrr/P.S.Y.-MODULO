@@ -88,7 +88,7 @@ public class BPMController {
         // Bundle branch block and hypertrophy detection can be added here...
 
         // If no pathology is detected
-        if (diagnosis.length() == 0) {
+        if (diagnosis.isEmpty()) {
             diagnosis.append("No significant pathology detected.");
         }
 

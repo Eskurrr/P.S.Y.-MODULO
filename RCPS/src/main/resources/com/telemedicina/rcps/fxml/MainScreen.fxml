@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.glyphfont.Glyph?>
 
-<AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MainController">
+<AnchorPane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MainController">
    <children>
-      <GridPane fx:id="mainMenu" alignment="CENTER" layoutY="540.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="335.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <GridPane fx:id="mainMenu" alignment="CENTER" layoutY="540.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="335.0" style="-fx-background-color: #D6C6FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -19,16 +20,20 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="100.0">
-               <children>
-                  <MFXButton fx:id="myMeasures" onAction="#myMeasuresClicked" prefHeight="50.0" prefWidth="95.0" style="-fx-background-color: pink;" text="My Measures" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="100.0" GridPane.columnIndex="1">
-               <children>
-                  <MFXButton fx:id="myBPM" onAction="#myBPMClicked" prefHeight="50.0" prefWidth="95.0" style="-fx-background-color: pink;" text="My Profile" />
-               </children>
-            </VBox>
+            <Glyph fx:id="MeasuresIcon" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" prefHeight="127.0" prefWidth="76.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+               <graphic>
+                  <MFXRadioButton fx:id="myMeasures" contentDisplay="GRAPHIC_ONLY" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#myMeasuresClicked" prefHeight="67.0" prefWidth="94.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="maintoggle" />
+                     </toggleGroup>
+                  </MFXRadioButton>
+               </graphic>
+            </Glyph>
+            <Glyph fx:id="BPMIcon" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" prefHeight="127.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+               <graphic>
+                  <MFXRadioButton fx:id="myBPM" contentDisplay="GRAPHIC_ONLY" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#myBPMClicked" prefHeight="67.0" prefWidth="94.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" toggleGroup="$maintoggle" />
+               </graphic>
+            </Glyph>
          </children>
       </GridPane>
       <StackPane fx:id="mainContent" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

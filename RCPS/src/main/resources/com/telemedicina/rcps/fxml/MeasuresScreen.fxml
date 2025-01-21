@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" style="-fx-background-color: #facaed44;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MeasuresController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MeasuresController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="521.0" minHeight="10.0" prefHeight="329.33333333333337" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="521.0" minHeight="10.0" prefHeight="137.33333333333331" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="295.0" minHeight="10.0" prefHeight="158.66665649414062" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="340.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <LineChart fx:id="Chart" prefHeight="298.0" prefWidth="335.0" stylesheets="@../css/LineChart.css">
+            <LineChart fx:id="Chart" createSymbols="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="298.0" prefWidth="335.0" stylesheets="@../css/LineChart.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false" VBox.vgrow="SOMETIMES">
               <xAxis>
-                <CategoryAxis fx:id="Xax" side="BOTTOM" />
+                <CategoryAxis fx:id="Xax" prefHeight="9.0" prefWidth="300.0" side="BOTTOM" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" />
               </xAxis>
               <yAxis>
-                <NumberAxis fx:id="Yax" lowerBound="-2.0" side="LEFT" tickLabelGap="1.0" tickLength="10.0" tickUnit="2.0" upperBound="2.0" />
+                <NumberAxis fx:id="Yax" forceZeroInRange="false" lowerBound="40.0" minorTickCount="10" minorTickLength="2.0" prefHeight="298.0" prefWidth="4.0" side="LEFT" tickLabelGap="1.0" tickLength="10.0" tickUnit="2.0" upperBound="140.0">
+                     <tickLabelFont>
+                        <Font size="6.0" />
+                     </tickLabelFont></NumberAxis>
               </yAxis>
             </LineChart>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
-         <children>
-            <MenuButton fx:id="menu" mnemonicParsing="false" prefHeight="43.0" prefWidth="230.0" text="MenuButton">
-              <items>
-                <MenuItem fx:id="option1" mnemonicParsing="false" text="22/11/2024" />
-                <MenuItem fx:id="option2" mnemonicParsing="false" text="10/12/2024" />
-              </items>
-            </MenuButton>
-         </children>
-      </VBox>
+      <MFXButton fx:id="backButton" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#clickBack" prefHeight="30.0" prefWidth="50.0" styleClass="outline-button" stylesheets="@../../../../../../../../../pib24-rcps/RCPS/src/main/resources/com/telemedicina/rcps/css/Buttons.css" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets right="200.0" />
+         </GridPane.margin>
+      </MFXButton>
+      <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" prefHeight="32.0" prefWidth="115.0" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <MFXButton fx:id="forwardButton" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#clickForward" prefHeight="30.0" prefWidth="70.0" styleClass="outline-button" stylesheets="@../../../../../../../../../pib24-rcps/RCPS/src/main/resources/com/telemedicina/rcps/css/Buttons.css" text="Forward" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets left="200.0" />
+         </GridPane.margin>
+      </MFXButton>
+      <Label fx:id="DiagnosticLBL" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" prefHeight="50.0" prefWidth="240.0" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES" />
    </children>
 </GridPane>
