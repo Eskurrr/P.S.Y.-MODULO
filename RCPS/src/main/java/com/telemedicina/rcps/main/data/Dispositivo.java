@@ -1,23 +1,17 @@
 package com.telemedicina.rcps.main.data;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Dispositivo extends Usuario{
-    private char[] idPatient = new char[8] ;
+public class Dispositivo{
     private String date;
     private boolean Oxygen;
-    private int[] medida;
-    private int battery;
-    public Dispositivo(String id, String idPatient, boolean Oxy ,String date, int[] medida , int battery) {
-        String idP = "4444" + id;
-        super.setId(idP.toCharArray());
-        this.idPatient = idPatient.toCharArray();
+    private List<Float> medida;
+    protected List<Integer> bpms;
+    public Dispositivo(boolean Oxy ,String date, List<Float> medida , List<Integer> bpms ) {
         this.Oxygen = Oxy;
         this.date = date;
         this.medida = medida;
-        super.setPassword("");
-        this.battery = battery;
+        this.bpms = bpms;
     }
 
     public boolean isOxygen() {
@@ -28,14 +22,6 @@ public class Dispositivo extends Usuario{
         Oxygen = oxygen;
     }
 
-    public char[] getIdPatient() {
-        return idPatient;
-    }
-
-    public void setIdPatient(char[] idPatient) {
-        this.idPatient = idPatient;
-    }
-
     public String getDate() {
         return date;
     }
@@ -44,19 +30,19 @@ public class Dispositivo extends Usuario{
         this.date = date;
     }
 
-    public int[] getMedida() {
+    public List<Float> getMedida() {
         return medida;
     }
 
-    public void setMedida(int[] medida) {
+    public void setMedida(List<Float> medida) {
         this.medida = medida;
     }
 
-    public int getBattery() {
-        return battery;
+    public List<Integer> getBpms() {
+        return bpms;
     }
 
-    public void setBattery(int battery) {
-        this.battery = battery;
+    public void setBpms(List<Integer> bpms) {
+        this.bpms = bpms;
     }
 }

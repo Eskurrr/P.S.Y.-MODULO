@@ -1,6 +1,8 @@
 package com.telemedicina.rcps.main.controller;
 
 import com.telemedicina.rcps.main.Connection.ConnectionClient;
+import com.telemedicina.rcps.main.data.Devices;
+import com.telemedicina.rcps.main.data.Json;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import javafx.event.ActionEvent;
@@ -17,7 +19,7 @@ import java.io.IOException;
 import static org.controlsfx.glyphfont.FontAwesome.Glyph.HEARTBEAT;
 import static org.controlsfx.glyphfont.FontAwesome.Glyph.LINE_CHART;
 
-public class MainController {
+public class MainController extends Devices {
     @FXML
     public StackPane mainContent;
     @FXML
@@ -40,8 +42,9 @@ public class MainController {
         this.client = client;
     }
     public void Start(){
-        client = new ConnectionClient("192.168.1.100" , 12345);
-        client.start();
+        client = new ConnectionClient();
+        client.run();
+        setClient(client);
     }
     @FXML
     private void loadViewBPM() {
@@ -50,6 +53,7 @@ public class MainController {
             Pane view = loader.load();
             BPMController control = loader.getController();
             control.setClient(getClient());
+            control.initializeManually();
             mainContent.getChildren().clear();
             mainContent.getChildren().add(view);
         } catch (IOException e) {
@@ -63,6 +67,7 @@ public class MainController {
             Pane view = loader.load();
             MeasuresController control = loader.getController();
             control.setClient(getClient());
+            control.initializeManually();
             mainContent.getChildren().clear();
             mainContent.getChildren().add(view);
         } catch (IOException e) {
@@ -71,6 +76,8 @@ public class MainController {
     }
     @FXML
     public void initialize() {
+        Json json = new Json();
+        setDispositivos(json.Desserializar());
         MeasuresIcon.setIcon(LINE_CHART);
         BPMIcon.setIcon(HEARTBEAT);
         MeasuresIcon.setOnMouseClicked(MouseEvent -> myMeasures.fire());

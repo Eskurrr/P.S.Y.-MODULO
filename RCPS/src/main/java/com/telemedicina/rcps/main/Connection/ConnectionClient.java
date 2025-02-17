@@ -1,87 +1,29 @@
 package com.telemedicina.rcps.main.Connection;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import com.telemedicina.rcps.main.data.Devices;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnectionClient extends Thread {
+public class ConnectionClient extends Devices {
     protected List<Float> Data = new ArrayList<Float>();
     protected boolean Stop = false;
-    protected String adress;
-    protected int port;
     protected List<Integer> bpms;
     protected int times;
-    public ConnectionClient(String adress, int port) {
-        this.adress = adress;
-        this.port = port;
-    }
-    public String getAdress() {
-        return adress;
-    }
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-    public int getPort() {
-        return port;
-    }
-    public void setPort(int port) {
-        this.port = port;
-    }
 
     public void run() {
-        Connect(adress, port);
+        Connect();
     }
-    public void Connect(String address, int port) {
-        try {
-            // Establish a connection to the server
-            Socket socket = new Socket(address, port);
-            System.out.println("Connected to server at " + address + ":" + port);
-            DataOutputStream Out = new DataOutputStream(socket.getOutputStream());
-            DataInputStream In = new DataInputStream(socket.getInputStream());
-            socket.setSoTimeout(5000);
-            while (true) {
-                try {
-                    // Read the byte array
-                    int arrayLength = 125; // We know the array size in advance
-                    byte[] byteArray = new byte[arrayLength * Float.BYTES]; // Each float is 4 bytes
-                    In.readFully(byteArray); // Read the entire byte array
-
-                    // Create a ByteBuffer to unpack the bytes
-                    ByteBuffer buffer = ByteBuffer.wrap(byteArray);
-                    buffer.order(ByteOrder.BIG_ENDIAN); // Ensure the byte order is correct
-
-                    // Unpack the byte array into a List<Float>
-                    List<Float> receivedList = new ArrayList<>(arrayLength);
-                    for (int i = 0; i < arrayLength; i++) {
-                        float value = buffer.getFloat(); // Read each float
-                        receivedList.add(value);
-                    }
+    public void Connect() {
+            setBpms(new ArrayList<>());
+            for(int j = 0; j < getDispositivos().size(); j++) {
+                    List<Float> receivedList = new ArrayList<>();
+                    List<Float> sendList = getDispositivos().get(j).getMedida();
+                    receivedList.addAll(sendList);
                     getData().addAll(receivedList);
-                    times++;
-                    if(times == 4){
-                        int samplingRate = 250; // Your sampling rate
+                        int samplingRate = 40; // Your sampling rate
                         getBpms().add(calculateBPM(getData(), samplingRate));
-                        System.out.println("Calculated BPM: " + getBpms().getLast());
-                        times = 0;
-                    }
-                    Out.writeBoolean(isStop());
-                } catch (SocketTimeoutException e) {
-                    System.out.println("Connection lost or server is not responding.");
-                    break; // Exit the loop if a timeout occurs
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    break; // Exit the loop on other I/O exceptions
-                }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     public static List<Integer> detectPeaks(List<Float> signal) {
         List<Integer> peaks = new ArrayList<>();
@@ -102,7 +44,7 @@ public class ConnectionClient extends Thread {
         }
         // Calculate BPM
         float averageIBI = IBIs.stream().reduce(0.0f, Float::sum) / IBIs.size();
-        return Math.round(60 / averageIBI); // BPM as an integer
+        return Math.round(60 / averageIBI) - 100; // BPM as an integer
     }
 
     public boolean isStop() {

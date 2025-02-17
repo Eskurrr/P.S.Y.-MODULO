@@ -20,18 +20,18 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Glyph fx:id="MeasuresIcon" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" prefHeight="127.0" prefWidth="76.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+            <Glyph fx:id="MeasuresIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="20.0" graphicTextGap="0.0" prefHeight="127.0" prefWidth="76.0" viewOrder="1.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                <graphic>
-                  <MFXRadioButton fx:id="myMeasures" contentDisplay="GRAPHIC_ONLY" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#myMeasuresClicked" prefHeight="67.0" prefWidth="94.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css">
+                  <MFXRadioButton fx:id="myMeasures" contentDisplay="CENTER" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#myMeasuresClicked" prefHeight="67.0" prefWidth="94.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css">
                      <toggleGroup>
                         <ToggleGroup fx:id="maintoggle" />
                      </toggleGroup>
                   </MFXRadioButton>
                </graphic>
             </Glyph>
-            <Glyph fx:id="BPMIcon" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" prefHeight="127.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+            <Glyph fx:id="BPMIcon" alignment="CENTER" contentDisplay="CENTER" fontFamily="FontAwesome" fontSize="20.0" graphicTextGap="0.0" prefHeight="127.0" prefWidth="76.0" viewOrder="1.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                <graphic>
-                  <MFXRadioButton fx:id="myBPM" contentDisplay="GRAPHIC_ONLY" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#myBPMClicked" prefHeight="67.0" prefWidth="94.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" toggleGroup="$maintoggle" />
+                  <MFXRadioButton fx:id="myBPM" contentDisplay="CENTER" contentDisposition="GRAPHIC_ONLY" gap="0.0" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#myBPMClicked" prefHeight="67.0" prefWidth="94.0" radioGap="0.0" radius="26.0" stylesheets="@../css/MFXRadioButton.css" toggleGroup="$maintoggle" />
                </graphic>
             </Glyph>
          </children>
