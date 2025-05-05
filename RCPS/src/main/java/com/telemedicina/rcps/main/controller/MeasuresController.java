@@ -47,7 +47,7 @@ public class MeasuresController extends Devices {
         this.client = client;
     }
     @FXML
-    public void initializeManually() {
+    public void initialize() {
         measures = SearchECGMeasures();
         if(measures != null  && !measures.isEmpty()) {
             dateLabel.setText(measures.get(measures.size() - 1).getDate());

@@ -51,12 +51,12 @@
             </Label>
          </children>
       </GridPane>
-      <LineChart fx:id="ECG" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="571.0" prefWidth="335.0" stylesheets="@../css/LineChart.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+      <LineChart fx:id="ECG" alternativeRowFillVisible="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="571.0" prefWidth="335.0" stylesheets="@../css/LineChart.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <xAxis>
           <CategoryAxis fx:id="Xaxis" endMargin="0.0" gapStartAndEnd="false" side="BOTTOM" startMargin="0.0" tickLabelGap="0.0" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="Yaxis" forceZeroInRange="false" lowerBound="440.0" prefHeight="240.0" prefWidth="0.0" side="LEFT" tickLabelGap="0.0" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" tickUnit="2.0" upperBound="600.0" />
+          <NumberAxis fx:id="Yaxis" autoRanging="false" lowerBound="40.0" prefHeight="240.0" prefWidth="0.0" side="LEFT" tickLabelGap="0.0" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" tickUnit="2.0" upperBound="140.0" />
         </yAxis>
       </LineChart>
    </children>
