@@ -42,8 +42,8 @@ public class MainController extends Devices {
         this.client = client;
     }
     public void Start(){
-        client = new ConnectionClient();
-        client.run();
+        client = new ConnectionClient("192.168.1.100" , 12345);
+        client.start();
         setClient(client);
     }
     @FXML
@@ -53,7 +53,6 @@ public class MainController extends Devices {
             Pane view = loader.load();
             BPMController control = loader.getController();
             control.setClient(getClient());
-            control.initializeManually();
             mainContent.getChildren().clear();
             mainContent.getChildren().add(view);
         } catch (IOException e) {
@@ -67,7 +66,6 @@ public class MainController extends Devices {
             Pane view = loader.load();
             MeasuresController control = loader.getController();
             control.setClient(getClient());
-            control.initializeManually();
             mainContent.getChildren().clear();
             mainContent.getChildren().add(view);
         } catch (IOException e) {

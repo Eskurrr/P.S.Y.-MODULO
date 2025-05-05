@@ -32,7 +32,7 @@ public class BPMController extends Devices {
     public CategoryAxis Xaxis;
     @FXML
     public NumberAxis Yaxis;
-    protected int lastIndex;
+    protected int lastIndex = getClient().getData().size() - 1;
     protected XYChart.Series<String, Number> ecgSeries = new XYChart.Series<>();
     protected ConnectionClient client;
 
@@ -45,21 +45,20 @@ public class BPMController extends Devices {
     }
 
     @FXML
-    public void initializeManually() {
+    public void initialize() {
         ECG.getData().clear();
         ECG.getData().add(ecgSeries);
         ECG.setCreateSymbols(false);
         BPManimation();
-        lastIndex = 0;
         startChartUpdateLoop();
     }
 
     public void BPManimation(){
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1), heart);
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(2), heart);
         scaleTransition.setFromX(1.0); // Original size
         scaleTransition.setFromY(1.0);
-        scaleTransition.setToX(1.2); // Grown size
-        scaleTransition.setToY(1.2);
+        scaleTransition.setToX(1.5); // Grown size
+        scaleTransition.setToY(1.5);
         scaleTransition.setCycleCount(ScaleTransition.INDEFINITE);
         scaleTransition.setAutoReverse(true);
         scaleTransition.play();
@@ -71,29 +70,27 @@ public class BPMController extends Devices {
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
-        Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
-            updateBPM();
-        }));
-        timeline2.setCycleCount(Timeline.INDEFINITE);
-        timeline2.play();
     }
-    @FXML
-    public void updateBPM() {
-        if(lastIndex < getClient().getBpms().size()){
-            String BPM = String.valueOf(getClient().getBpms().get(lastIndex));
-            bpm.setText(BPM);
-        }
-    }
+
     @FXML
     public void update() {
-        if (lastIndex < getClient().getData().size() && !getClient().isStop()) {
+        while (lastIndex < getClient().getData().size() && !getClient().isStop()) {
+            String BPM = String.valueOf(getClient().getBpms().getLast());
+            bpm.setText(BPM);
             float value = getClient().getData().get(lastIndex);
             ecgSeries.getData().add(new XYChart.Data<>(String.valueOf(lastIndex), value));
-            if (ecgSeries.getData().size() > 40) {
+            if (ecgSeries.getData().size() > 100) {
                 ecgSeries.getData().remove(0);
             }
             lastIndex++;
         }
+        if(getClient().isStop()){
+            getDispositivos().add(new Dispositivo(false, String.valueOf(LocalDate.now()) , getClient().getData(), getClient().getBpms() ));
+            Json json = new Json();
+            json.Serializar(getDispositivos());
+        }
+
+
     }
 
 

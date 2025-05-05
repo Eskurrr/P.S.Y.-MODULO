@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -10,6 +9,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.telemedicina.rcps.main.controller.MeasuresController">
@@ -22,29 +22,28 @@
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <MFXScrollPane pannable="true" vbarPolicy="NEVER">
-         <content>
-            <LineChart fx:id="Chart" createSymbols="false" horizontalZeroLineVisible="false" legendVisible="false" minWidth="335.0" prefHeight="340.0" prefWidth="1000.0" stylesheets="@../css/LineChart.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <LineChart fx:id="Chart" createSymbols="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="298.0" prefWidth="335.0" stylesheets="@../css/LineChart.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false" VBox.vgrow="SOMETIMES">
               <xAxis>
-                <CategoryAxis fx:id="Xax" prefHeight="9.0" prefWidth="300.0" side="BOTTOM" tickLabelGap="4.0" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" />
+                <CategoryAxis fx:id="Xax" prefHeight="9.0" prefWidth="300.0" side="BOTTOM" tickLabelsVisible="false" tickLength="0.0" tickMarkVisible="false" />
               </xAxis>
               <yAxis>
                 <NumberAxis fx:id="Yax" forceZeroInRange="false" lowerBound="40.0" minorTickCount="10" minorTickLength="2.0" prefHeight="298.0" prefWidth="4.0" side="LEFT" tickLabelGap="1.0" tickLength="10.0" tickUnit="2.0" upperBound="140.0">
                      <tickLabelFont>
                         <Font size="6.0" />
-                     </tickLabelFont>
-                  </NumberAxis>
+                     </tickLabelFont></NumberAxis>
               </yAxis>
             </LineChart>
-         </content>
-      </MFXScrollPane>
-      <MFXButton fx:id="backButton" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#clickBack" prefHeight="30.0" prefWidth="50.0" styleClass="outline-button" stylesheets="@../css/Buttons.css" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         </children>
+      </VBox>
+      <MFXButton fx:id="backButton" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#clickBack" prefHeight="30.0" prefWidth="50.0" styleClass="outline-button" stylesheets="@../../../../../../../../../pib24-rcps/RCPS/src/main/resources/com/telemedicina/rcps/css/Buttons.css" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="200.0" />
          </GridPane.margin>
       </MFXButton>
       <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" prefHeight="32.0" prefWidth="115.0" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <MFXButton fx:id="forwardButton" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#clickForward" prefHeight="30.0" prefWidth="70.0" styleClass="outline-button" stylesheets="@../css/Buttons.css" text="Forward" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <MFXButton fx:id="forwardButton" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#clickForward" prefHeight="30.0" prefWidth="70.0" styleClass="outline-button" stylesheets="@../../../../../../../../../pib24-rcps/RCPS/src/main/resources/com/telemedicina/rcps/css/Buttons.css" text="Forward" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets left="200.0" />
          </GridPane.margin>
