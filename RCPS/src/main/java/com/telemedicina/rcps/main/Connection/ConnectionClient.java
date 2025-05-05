@@ -5,7 +5,7 @@ import com.telemedicina.rcps.main.data.Devices;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnectionClient extends Devices {
+public class ConnectionClient{
     protected List<Float> Data = new ArrayList<Float>();
     protected boolean Stop = false;
     protected List<Integer> bpms;
